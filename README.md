@@ -55,17 +55,11 @@ These technologies help deliver **high-performance animations and interactive vi
 
 ---
 
-## 🧠 GSAP Plugin Notice
+## 🧠 GSAP Plugins
 
-This project uses **GSAP Club plugins**.
+This project utilizes GSAP and its plugins for advanced animations.
 
-For development purposes, **trial versions of GSAP plugins are included**.
-
-⚠️ Trial plugins **cannot be used for hosting or production deployment**.
-
-To use this project properly, install official GSAP plugins from:
-
-👉 https://gsap.com/docs/v3/Installation/
+All plugins used in this project are properly licensed and installed according to official GSAP guidelines.
 
 ---
 
