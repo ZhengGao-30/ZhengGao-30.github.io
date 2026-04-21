@@ -33,6 +33,30 @@
   margin: 0 0 20px;
 }
 
+@media only screen and (max-width: 599px) {
+  .about-section {
+    width: calc(100% - 28px);
+  }
+
+  .about-me {
+    padding: 54px 0 0;
+    max-width: 100%;
+  }
+
+  .about-me h3 {
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+  }
+
+  .about-me p {
+    font-size: 16px;
+    line-height: 1.65;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;

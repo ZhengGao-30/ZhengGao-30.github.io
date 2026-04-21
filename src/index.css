@@ -42,7 +42,7 @@ h6 {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -156,6 +156,17 @@ body {
 @media screen and (min-width: 768px) {
   body {
     --cWidth: 94%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    --cWidth: calc(100% - 28px);
+    background-size: auto, 30px 30px, 30px 30px, 120px 120px, 120px 120px;
+  }
+
+  .container-main::before {
+    opacity: 0.55;
   }
 }
 

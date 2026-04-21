@@ -211,26 +211,45 @@
 @media only screen and (max-width: 600px) {
   .career-info {
     margin: 0;
+    width: 100%;
   }
 
   .career-section h2 {
     width: 100%;
-    font-size: 45px;
-    line-height: 45px;
+    font-size: 36px;
+    line-height: 1;
     margin-top: 0px;
+    margin-bottom: 48px;
+    text-align: left;
   }
 
   .career-info-in {
-    gap: 0px;
+    gap: 8px;
+    flex-direction: column;
   }
 
   .career-info h3 {
-    font-size: 33px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .career-info h4 {
+    width: auto;
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.12;
+  }
+
+  .career-info h5 {
+    font-size: 14px;
+    line-height: 1.3;
   }
 
   .career-info-in,
   .career-info-box p {
-    padding-left: 5%;
+    padding-left: 24px;
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   .career-section {
