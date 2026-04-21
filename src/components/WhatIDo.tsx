@@ -93,19 +93,20 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>WEB DEVELOPMENT</h3>
-              <h4>Modern & Responsive Websites</h4>
+              <h3>MACHINE LEARNING</h3>
+              <h4>Generative Models & Model Integrity</h4>
               <p>
-                Building clean, fast, and user-friendly web interfaces with modern technologies.
+                Studying the integrity and reliability of generative models,
+                including semantic-aware watermarking, diffusion-based
+                watermarking, watermark removal attacks, and deepfake detection.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Research areas</h5>
               <div className="what-content-flex">
-                <div className="what-tags">React.js</div>
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">HTML5</div>
-                <div className="what-tags">CSS3</div>
-                <div className="what-tags">Tailwind CSS</div>
+                <div className="what-tags">Generative Models</div>
+                <div className="what-tags">Watermarking</div>
+                <div className="what-tags">Deepfake Detection</div>
+                <div className="what-tags">LLM-Guided Attacks</div>
+                <div className="what-tags">Diffusion Models</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -131,19 +132,21 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>BACKEND & AUTOMATION</h3>
-              <h4>APIs, Bots & Custom Systems</h4>
+              <h3>AI SECURITY</h3>
+              <h4>Robust Learning & Attack Detection</h4>
               <p>
-                Creating APIs, Telegram bots, backend logic, and automation tools for real-world use.
+                Exploring adversarial robustness, reinforcement-learning-based
+                attack detection, and robust graph learning under data
+                deficiency with iterative refinement.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Research areas</h5>
               <div className="what-content-flex">
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">MySQL</div>
-                <div className="what-tags">REST APIs</div>
-                <div className="what-tags">Telegram Bots</div>
-                <div className="what-tags">Cloudflare Workers</div>
+                <div className="what-tags">Cybersecurity</div>
+                <div className="what-tags">Adversarial Robustness</div>
+                <div className="what-tags">Deep RL</div>
+                <div className="what-tags">Graph Neural Networks</div>
+                <div className="what-tags">NLP</div>
+                <div className="what-tags">Computer Vision</div>
               </div>
               <div className="what-arrow"></div>
             </div>

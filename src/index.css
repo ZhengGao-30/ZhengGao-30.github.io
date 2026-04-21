@@ -7,8 +7,8 @@
   font-style: normal;
   line-height: 1.5;
   scroll-behavior: smooth;
-  color-scheme: light dark;
-  color: #eae5ec;
+  color-scheme: light;
+  color: var(--textColor);
   background-color: var(--backgroundColor);
 
   font-synthesis: none;
@@ -18,8 +18,16 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  --accentColor: #5eead4;
-  --backgroundColor: #0a0e17;
+  --accentColor: #245dff;
+  --accentRed: #d83333;
+  --accentYellow: #e3b93f;
+  --armorWhite: #f8f3e8;
+  --panelLine: rgba(36, 93, 255, 0.18);
+  --panelLineStrong: rgba(34, 50, 88, 0.28);
+  --textColor: #172036;
+  --mutedText: #66728f;
+  --backgroundColor: #f6f0e4;
+  --surfaceColor: #fffaf0;
   --vh: 100vh;
   --vh: 100svh;
 }
@@ -66,7 +74,15 @@ main {
 body {
   margin: 0;
   height: auto;
-  background-color: #050810;
+  background-color: var(--backgroundColor);
+  background-image:
+    radial-gradient(circle at 72% 18%, rgba(36, 93, 255, 0.08), transparent 34%),
+    linear-gradient(rgba(36, 93, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 93, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(23, 32, 54, 0.045) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(23, 32, 54, 0.045) 2px, transparent 2px);
+  background-size: auto, 36px 36px, 36px 36px, 180px 180px, 180px 180px;
+  background-position: center top;
   flex-grow: 1;
   --cWidth: calc(100% - 30px);
   --cMaxWidth: 1920px;
@@ -83,6 +99,17 @@ body {
   width: 100%;
   margin: auto;
   position: relative;
+}
+
+.container-main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, transparent 0 62%, rgba(36, 93, 255, 0.12) 62% 62.35%, transparent 62.35%),
+    linear-gradient(180deg, transparent 0 34%, rgba(216, 51, 51, 0.1) 34% 34.3%, transparent 34.3%);
 }
 
 .container1 {
@@ -122,6 +149,8 @@ body {
   left: 0;
   font-weight: 400;
   text-transform: uppercase;
+  color: var(--armorWhite);
+  text-shadow: 0 0 0 transparent;
 }
 
 @media screen and (min-width: 768px) {

@@ -4,6 +4,7 @@
   margin: auto;
   position: relative;
   height: var(--vh);
+  background-color: transparent;
 }
 
 .landing-container {
@@ -17,15 +18,17 @@
 .landing-circle1 {
   top: 0%;
   left: 0%;
-  z-index: 15;
+  z-index: 3;
   position: fixed;
-  width: 300px;
-  height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(60px);
-  border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
+  width: 340px;
+  height: 180px;
+  border: 1px solid var(--panelLine);
+  border-left: 6px solid var(--accentRed);
+  background:
+    linear-gradient(90deg, rgba(243, 240, 232, 0.08), transparent 62%),
+    repeating-linear-gradient(135deg, transparent 0 12px, rgba(243, 240, 232, 0.08) 12px 13px);
+  clip-path: polygon(0 0, 82% 0, 100% 24%, 100% 100%, 18% 100%, 0 78%);
+  animation: loadingCircle 8s linear infinite;
 }
 
 .nav-fade {
@@ -35,7 +38,7 @@
   height: 130px;
   background-image: linear-gradient(0deg,
       transparent,
-      var(--backgroundColor) 70%);
+      rgba(246, 240, 228, 0.94) 70%);
   pointer-events: none;
   z-index: 12;
   opacity: 0;
@@ -44,33 +47,35 @@
 
 @keyframes loadingCircle {
   0% {
-    transform: translate(-95%, -75%) rotateZ(0deg);
+    transform: translate(-62%, -38%) rotateZ(0deg);
   }
 
   100% {
-    transform: translate(-95%, -75%) rotateZ(360deg);
+    transform: translate(-62%, -38%) rotateZ(360deg);
   }
 }
 
 .landing-circle2 {
   top: 50%;
   right: 0%;
-  transform: translate(calc(100% - 2px), -50%);
-  z-index: 9;
+  transform: translate(45%, -50%);
+  z-index: 2;
   position: fixed;
   display: none;
-  width: 300px;
-  height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(50px);
-  border-radius: 50%;
-  animation: loadingCircle2 5s linear infinite;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(47, 102, 255, 0.34);
+  border-right: 10px solid var(--accentColor);
+  background:
+    linear-gradient(90deg, transparent 0 70%, rgba(47, 102, 255, 0.12) 70%),
+    repeating-linear-gradient(0deg, transparent 0 18px, rgba(143, 157, 194, 0.08) 18px 19px);
+  clip-path: polygon(12% 0, 100% 0, 100% 78%, 82% 100%, 0 100%, 0 18%);
+  animation: loadingCircle2 10s linear infinite;
 }
 
 @keyframes loadingCircle2 {
   100% {
-    transform: translate(calc(100% - 2px), -50%) rotate(360deg);
+    transform: translate(45%, -50%) rotate(360deg);
   }
 }
 
@@ -94,11 +99,11 @@
   width: 400px;
   height: 400px;
   z-index: 1;
-  background-color: #22d3ee;
+  background-color: rgba(36, 93, 255, 0.16);
   transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
-  filter: blur(50px);
-  border-radius: 50%;
+  box-shadow: inset 66px 35px 85px 0px rgba(36, 93, 255, 0.18);
+  filter: blur(30px);
+  border-radius: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100%) scale(1.4);
@@ -114,7 +119,7 @@
   transform: translateX(-50%);
   width: 100%;
   left: 50%;
-  z-index: 0;
+  z-index: 1;
   bottom: 50px;
   pointer-events: inherit;
 }
@@ -125,7 +130,7 @@
   height: 250px;
   background-image: linear-gradient(to bottom,
       transparent,
-      var(--backgroundColor) 70%);
+      #f6f0e4 70%);
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
@@ -137,7 +142,7 @@
   content: "";
   width: 100vw;
   height: 700px;
-  background-color: var(--backgroundColor);
+  background-color: #f6f0e4;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -170,7 +175,7 @@
 
 .landing-intro {
   position: absolute;
-  z-index: 9;
+  z-index: 14;
   top: 12%;
   left: 0;
 }
@@ -190,6 +195,7 @@
   line-height: 28px;
   font-weight: 500;
   font-family: "Geist", sans-serif;
+  text-shadow: 2px 0 0 rgba(216, 51, 51, 0.16);
 }
 
 /* .landing-intro h1 span {
@@ -202,7 +208,7 @@
   transform: translateX(50%);
   bottom: 40px;
   top: inherit;
-  z-index: 9;
+  z-index: 14;
 }
 
 .landing-info h3 {
@@ -234,7 +240,7 @@
 }
 
 h2.landing-info-h2 {
-  color: #14b8a6;
+  color: var(--accentYellow);
   font-size: 42px;
   width: 120%;
   margin: 0;
@@ -256,8 +262,8 @@ h2.landing-info-h2 {
   height: 120%;
   z-index: 3;
   background-image: linear-gradient(0deg,
-      var(--backgroundColor) 40%,
-      rgba(0, 0, 0, 0) 110%);
+      #f6f0e4 36%,
+      rgba(246, 240, 228, 0) 110%);
   top: 0;
   left: 0;
 }
@@ -326,7 +332,7 @@ h2.landing-info-h2 {
   .character-model {
     height: 100vh;
     bottom: 0;
-    z-index: 11;
+    z-index: 4;
     position: fixed;
   }
 

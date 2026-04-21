@@ -6,12 +6,15 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am a BCA graduate and a passionate Full Stack Developer with 9+ years 
-          of coding experience, starting my journey from Class 6. I specialize in 
-          building modern web applications, APIs, and automation tools using 
-          technologies like React.js, JavaScript, PHP, Node.js, and Cloudflare Workers.
-          I also develop Telegram bots, backend systems, and scalable web services.
-          I enjoy turning ideas into fast, secure, and production-ready applications.
+          I am an MPhil researcher in Computer Science and Engineering at the
+          University of New South Wales, advised by Dr. Jiaojiao Jiang. My work
+          focuses on machine learning, AI security, and applied deep learning.
+        </p>
+        <p className="para">
+          I am particularly interested in generative model watermarking,
+          watermark removal attacks, deepfake detection and localization, robust
+          graph learning, computer vision, natural language processing, and
+          large language models.
         </p>
       </div>
     </div>

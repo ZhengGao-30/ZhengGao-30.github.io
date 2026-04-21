@@ -45,14 +45,14 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          AD
+          ZG
         </a>
         <a
-          href="mailto:info@amitdas.site"
+          href="mailto:zheng.gao1@unsw.edu.au"
           className="navbar-connect"
           data-cursor="disable"
         >
-          info@amitdas.site
+          zheng.gao1@unsw.edu.au
         </a>
         <ul>
           <li>

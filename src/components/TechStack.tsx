@@ -13,15 +13,10 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/php.webp",
   "/images/python.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/firebase.webp",
+  "/images/typescript.webp",
+  "/images/javascript.webp",
+  "/images/python.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
 ];
@@ -171,7 +166,7 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2> Research Stack</h2>
 
       <Canvas
         shadows
@@ -185,7 +180,7 @@ const TechStack = () => {
           position={[20, 20, 25]}
           penumbra={1}
           angle={0.2}
-          color="white"
+          color="#f3f0e8"
           castShadow
           shadow-mapSize={[512, 512]}
         />
@@ -207,7 +202,7 @@ const TechStack = () => {
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#d6deef" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
     </div>

@@ -1,6 +1,16 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
+type TimelineMaterial = THREE.Material & {
+  color?: THREE.Color;
+  emissive?: THREE.Color;
+  emissiveIntensity?: number;
+};
+
+type TimelineObject = THREE.Object3D & {
+  material?: TimelineMaterial;
+};
+
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
@@ -36,31 +46,37 @@ export function setCharTimeline(
       invalidateOnRefresh: true,
     },
   });
-  let screenLight: any, monitor: any;
-  character?.children.forEach((object: any) => {
-    if (object.name === "Plane004") {
-      object.children.forEach((child: any) => {
+  let screenLight: TimelineObject | undefined;
+  let monitor: TimelineObject | undefined;
+  character?.children.forEach((object) => {
+    const timelineObject = object as TimelineObject;
+    if (timelineObject.name === "Plane004") {
+      timelineObject.children.forEach((childObject) => {
+        const child = childObject as TimelineObject;
+        if (!child.material) return;
         child.material.transparent = true;
         child.material.opacity = 0;
         if (child.material.name === "Material.018") {
           monitor = child;
-          child.material.color.set("#FFFFFF");
+          child.material.color?.set("#FFFFFF");
         }
       });
     }
-    if (object.name === "screenlight") {
-      object.material.transparent = true;
-      object.material.opacity = 0;
-      object.material.emissive.set("#B0F5EA");
-      gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
-        emissiveIntensity: () => intensity * 8,
-        duration: () => Math.random() * 0.6,
-        delay: () => Math.random() * 0.1,
-      });
-      screenLight = object;
+    if (timelineObject.name === "screenlight" && timelineObject.material) {
+      timelineObject.material.transparent = true;
+      timelineObject.material.opacity = 0;
+      timelineObject.material.emissive?.set("#B0F5EA");
+      gsap
+        .timeline({ repeat: -1, repeatRefresh: true })
+        .to(timelineObject.material, {
+          emissiveIntensity: () => intensity * 8,
+          duration: () => Math.random() * 0.6,
+          delay: () => Math.random() * 0.1,
+        });
+      screenLight = timelineObject;
     }
   });
-  let neckBone = character?.getObjectByName("spine005");
+  const neckBone = character?.getObjectByName("spine005");
   if (window.innerWidth > 1024) {
     if (character) {
       tl1
@@ -86,19 +102,10 @@ export function setCharTimeline(
           0
         )
         .to(character.rotation, { y: 0.92, x: 0.12, delay: 3, duration: 3 }, 0)
-        .to(neckBone!.rotation, { x: 0.6, delay: 2, duration: 3 }, 0)
-        .to(monitor.material, { opacity: 1, duration: 0.8, delay: 3.2 }, 0)
-        .to(screenLight.material, { opacity: 1, duration: 0.8, delay: 4.5 }, 0)
         .fromTo(
           ".what-box-in",
           { display: "none" },
           { display: "flex", duration: 0.1, delay: 6 },
-          0
-        )
-        .fromTo(
-          monitor.position,
-          { y: -10, z: 2 },
-          { y: 0, z: 0, delay: 1.5, duration: 3 },
           0
         )
         .fromTo(
@@ -107,6 +114,31 @@ export function setCharTimeline(
           { opacity: 0, scale: 0, y: "-70%", duration: 5, delay: 2 },
           0.3
         );
+
+      if (neckBone) {
+        tl2.to(neckBone.rotation, { x: 0.6, delay: 2, duration: 3 }, 0);
+      }
+
+      if (monitor?.material) {
+        tl2.to(monitor.material, { opacity: 1, duration: 0.8, delay: 3.2 }, 0);
+      }
+
+      if (screenLight?.material) {
+        tl2.to(
+          screenLight.material,
+          { opacity: 1, duration: 0.8, delay: 4.5 },
+          0
+        );
+      }
+
+      if (monitor?.position) {
+        tl2.fromTo(
+          monitor.position,
+          { y: -10, z: 2 },
+          { y: 0, z: 0, delay: 1.5, duration: 3 },
+          0
+        );
+      }
 
       tl3
         .fromTo(

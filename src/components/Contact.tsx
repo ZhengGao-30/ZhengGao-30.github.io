@@ -10,17 +10,17 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Email</h4>
             <p>
-              <a href="mailto:info@amitdas.site" data-cursor="disable">
-                info@amitdas.site
+              <a href="mailto:zheng.gao1@unsw.edu.au" data-cursor="disable">
+                zheng.gao1@unsw.edu.au
               </a>
             </p>
             <h4>Education</h4>
-            <p>BCA in Computer Applications</p>
+            <p>MPhil in Computer Science and Engineering, UNSW</p>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com/AmitDas4321"
+              href="https://github.com/ZhengGao-30"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -28,41 +28,16 @@ const Contact = () => {
               Github <MdArrowOutward />
             </a>
             <a
-              href="https://t.me/AmitDas4321"
-              target="_blank"
+              href="mailto:zheng.gao1@unsw.edu.au"
               data-cursor="disable"
               className="contact-social"
             >
-              Telegram <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/amitdas4321"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Linkedin <MdArrowOutward />
-            </a>
-            <a
-              href="https://x.com/amitdas4321"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Twitter <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/AmitDas4321"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
+              Email <MdArrowOutward />
             </a>
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Amit Das</span>
+              Research Portfolio <br /> of <span>Zheng Gao</span>
             </h2>
             <h5>
               <MdCopyright /> {new Date().getFullYear()}

@@ -1,81 +1,29 @@
-<p align="center">
-  <img src="public/images/preview.png" alt="Portfolio Preview" width="800">
-</p>
+# Zheng Gao Research Portfolio
 
-<p align="center">
-  <b>Modern interactive developer Portfolio built with React, GSAP and ThreeJS.</b>
-</p>
+This repository contains Zheng Gao's personal research portfolio website.
 
-<h1 align="center">Developer Portfolio — Interactive Web Experience</h1>
+Zheng Gao is an MPhil researcher in Computer Science and Engineering at the University of New South Wales, advised by Dr. Jiaojiao Jiang. The website highlights research interests, education, selected publications, and contact information.
 
-<p align="center">
-  <b>Creative Web Portfolio ⚡</b><br>
-  Developed by <a href="https://www.amitdas.site/">Amit Das</a>
-</p>
+## Focus Areas
 
----
+- Machine learning
+- AI security and cybersecurity
+- Generative model watermarking
+- Watermark removal attacks
+- Deepfake detection and localization
+- Robust graph learning
+- Computer vision, NLP, LLMs, and graph neural networks
 
-## 🚀 Overview
-
-This repository contains the **open-source version of my personal Portfolio website**.
-
-The website is designed to showcase my **projects, skills, and experience** through a **smooth interactive UI** powered by modern web technologies.
-
-The Portfolio features **advanced animations, smooth scrolling effects, and interactive 3D elements** to create an engaging user experience.
-
----
-
-## ⚡ Tech Stack
-
-This project is built using modern web technologies:
+## Tech Stack
 
 - React
 - TypeScript
+- Vite
 - GSAP
-- ThreeJS
-- WebGL
-- HTML
-- CSS
-- JavaScript
+- Three.js
+- React Three Fiber
 
-These technologies help deliver **high-performance animations and interactive visuals**.
-
----
-
-## 🎨 Features
-
-- Smooth scroll animations using **GSAP**
-- Interactive **ThreeJS 3D graphics**
-- Responsive modern UI
-- High-performance WebGL rendering
-- Animated sections and transitions
-- Interactive project showcase
-- Custom cursor and UI effects
-- Optimized for modern browsers
-
----
-
-## 🧠 GSAP Plugins
-
-This project utilizes GSAP and its plugins for advanced animations.
-
-All plugins used in this project are properly licensed and installed according to official GSAP guidelines.
-
----
-
-## 📦 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/AmitDas4321/Portfolio.git
-````
-
-Enter the project folder:
-
-```bash
-cd Portfolio
-```
+## Development
 
 Install dependencies:
 
@@ -83,82 +31,25 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
----
+Build for production:
 
-## 📁 Project Structure
-
-```
-Portfolio
- ├ public/
- │   └ images/
- │       └ preview.png
- ├ src/
- │   ├ components/
- │   ├ styles/
- │   └ utils/
- ├ package.json
- ├ README.md
- └ LICENSE
+```bash
+npm run build
 ```
 
----
+Run lint:
 
-## 🌐 Live Preview
+```bash
+npm run lint
+```
 
-You can view the live Portfolio here:
+## Contact
 
-👉 [https://www.amitdas.site](https://www.amitdas.site)
-
----
-
-## 🧩 Use Cases
-
-### Personal Portfolio
-
-Showcase your projects, skills and experience.
-
-### Developer Branding
-
-Create a strong **online presence** as a developer.
-
-### Animation Showcase
-
-Demonstrates advanced **GSAP + WebGL animation techniques**.
-
-### Learning Resource
-
-Great reference project for learning:
-
-* React animation
-* GSAP scroll effects
-* ThreeJS integration
-* WebGL graphics
-
----
-
-## 📬 Support
-
-<p align="center">
-  <a href="https://t.me/AmitDas4321">
-    <img src="https://img.shields.io/badge/Contact%20on%20Telegram-@AmitDas4321-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white">
-  </a>
-</p>
-
----
-
-## 📜 License
-
-MIT License © 2026 Amit Das
-
----
-
-<p align="center">
-  <b>Built with ⚡ using React & GSAP</b><br>
-  Made with ❤️ by <a href="https://amitdas.site">Amit Das</a>
-</p>
+- Email: zheng.gao1@unsw.edu.au
+- GitHub: https://github.com/ZhengGao-30

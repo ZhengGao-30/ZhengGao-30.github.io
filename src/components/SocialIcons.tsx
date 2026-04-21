@@ -1,10 +1,7 @@
 import {
   FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTelegram,
-  FaXTwitter,
 } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
@@ -61,33 +58,18 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com/AmitDas4321" target="_blank">
+          <a href="https://github.com/ZhengGao-30" target="_blank">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://t.me/AmitDas4321" target="_blank">
-            <FaTelegram />
-          </a>
-        </span>
-        <span>
-          <a href="https://www.linkedin.com/in/AmitDas4321" target="_blank">
-            <FaLinkedinIn />
-          </a>
-        </span>
-        <span>
-          <a href="https://x.com/AmitDas4321" target="_blank">
-            <FaXTwitter />
-          </a>
-        </span>
-        <span>
-          <a href="https://www.instagram.com/AmitDas4321" target="_blank">
-            <FaInstagram />
+          <a href="mailto:zheng.gao1@unsw.edu.au">
+            <MdEmail />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="https://resume-cyan-nine.vercel.app/">
-        <HoverLinks text="RESUME" />
+      <a className="resume-button" href="#work">
+        <HoverLinks text="PAPERS" />
         <span>
           <TbNotes />
         </span>

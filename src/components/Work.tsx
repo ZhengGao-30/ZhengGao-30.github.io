@@ -5,34 +5,40 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "Breaking Semantic-Aware Watermarks",
+    category: "WWW 2026",
+    tools:
+      "LLM-guided coherence-preserving semantic injection for watermark removal attacks.",
+    image: "/images/papers/breaking-semantic-aware-watermarks.png",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "SHIFT",
+    category: "In Submission, 2026",
+    tools:
+      "Stochastic hidden-trajectory deflection for removing diffusion-based watermarks.",
+    image: "/images/papers/shift.png",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "SLICE",
+    category: "In Submission, 2026",
+    tools:
+      "Semantic latent injection via compartmentalized embedding for image watermarking.",
+    image: "/images/papers/slice.png",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
+    title: "Are LLMs Better GNN Helpers?",
+    category: "arXiv:2510.01910, 2025",
+    tools:
+      "Rethinking robust graph learning under deficiencies with iterative refinement.",
+    image: "/images/papers/are-llms-better-gnn.png",
+    link: "https://arxiv.org/abs/2510.01910",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "G-RXAD",
+    category: "AICIT 2024",
+    tools:
+      "A deep reinforcement learning-based attack detection model for network security.",
+    image: "/images/placeholder.webp",
   },
 ];
 
@@ -66,7 +72,7 @@ const Work = () => {
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
-          My <span>Work</span>
+          Selected <span>Publications</span>
         </h2>
 
         <div className="carousel-wrapper">
@@ -109,13 +115,17 @@ const Work = () => {
                           {project.category}
                         </p>
                         <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                          <span className="tools-label">Research Focus</span>
                           <p>{project.tools}</p>
                         </div>
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
+                      <WorkImage
+                        image={project.image}
+                        alt={project.title}
+                        link={project.link}
+                      />
                     </div>
                   </div>
                 </div>

@@ -5,7 +5,7 @@ const Career = () => {
     <div className="career-section section-container">
       <div className="career-container">
         <h2>
-          My career <span>&</span>
+          Education <span>&</span>
           <br /> experience
         </h2>
 
@@ -14,52 +14,49 @@ const Career = () => {
             <div className="career-dot"></div>
           </div>
 
-          {/* Career 1 */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Junior Web Developer</h4>
-                <h5>Self Learning & Personal Projects</h5>
+                <h4>MPhil Researcher</h4>
+                <h5>University of New South Wales</h5>
               </div>
-              <h3>2016</h3>
+              <h3>2025</h3>
             </div>
             <p>
-              Started my programming journey in school. Built small web
-              projects using HTML, CSS, JavaScript and PHP while learning
-              core programming concepts and backend basics.
+              Pursuing a Master of Philosophy in Computer Science and
+              Engineering in Sydney, Australia, advised by Dr. Jiaojiao Jiang.
+              Research focuses on machine learning, generative models, and AI
+              security.
             </p>
           </div>
 
-          {/* Career 2 */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Freelance Web Developer</h4>
-                <h5>Independent Projects</h5>
+                <h4>Undergraduate Researcher</h4>
+                <h5>City University of Macau</h5>
               </div>
-              <h3>2019</h3>
+              <h3>2023</h3>
             </div>
             <p>
-              Developed multiple web applications and backend systems.
-              Worked with React.js, PHP, APIs, and MySQL to build responsive
-              websites and automation tools.
+              Developed G-RXAD, a deep reinforcement learning-based attack
+              detection model for network security, later published at AICIT
+              2024.
             </p>
           </div>
 
-          {/* Career 3 */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Full Stack Developer</h4>
-                <h5>Freelance & Open Source</h5>
+                <h4>Bachelor of Data Science</h4>
+                <h5>City University of Macau</h5>
               </div>
-              <h3>Present</h3>
+              <h3>2021</h3>
             </div>
             <p>
-              Building scalable web applications, Telegram bots, APIs and
-              automation systems using React.js, JavaScript, PHP, Node.js and
-              Cloudflare Workers. Focused on performance, security and
-              production-ready deployments.
+              Completed undergraduate study in Data Science in Macau, China,
+              building a foundation in machine learning, data-driven systems,
+              and applied AI research.
             </p>
           </div>
 
