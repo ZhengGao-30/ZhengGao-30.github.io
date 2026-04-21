@@ -1,22 +1,13 @@
 import * as THREE from "three";
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
-import { decryptFile } from "./decrypt";
 
-type ModelSource =
-  | {
-      type: "gltf";
-      url: string;
-    }
-  | {
-      type: "encrypted";
-      url: string;
-      password: string;
-    };
+type ModelSource = {
+  type: "gltf";
+  url: string;
+};
 
-const DEFAULT_MODEL_URL = "/models/character.glb";
-const LEGACY_ENCRYPTED_MODEL_URL = "/models/character.enc?v=2";
-const LEGACY_MODEL_PASSWORD = "MyCharacter12";
+const DEFAULT_MODEL_URL = "/models/character.glb?v=ninja-r2";
 const REPLACEMENT_MODEL_HEIGHT = 5.8;
 const REPLACEMENT_MODEL_CENTER_Y = 10.2;
 
@@ -33,12 +24,6 @@ const getModelSources = (): ModelSource[] => {
   if (customModelUrl !== DEFAULT_MODEL_URL) {
     sources.push({ type: "gltf", url: DEFAULT_MODEL_URL });
   }
-
-  sources.push({
-    type: "encrypted",
-    url: LEGACY_ENCRYPTED_MODEL_URL,
-    password: LEGACY_MODEL_PASSWORD,
-  });
 
   return sources;
 };
@@ -57,21 +42,6 @@ const setCharacter = (
     return new Promise<GLTF>((resolve, reject) => {
       loader.load(url, resolve, undefined, reject);
     });
-  };
-
-  const loadEncryptedGltf = async (
-    source: Extract<ModelSource, { type: "encrypted" }>
-  ) => {
-    const encryptedBlob = await decryptFile(source.url, source.password);
-    const blobUrl = URL.createObjectURL(
-      new Blob([encryptedBlob], { type: "model/gltf-binary" })
-    );
-
-    try {
-      return await loadGltfFromUrl(blobUrl);
-    } finally {
-      URL.revokeObjectURL(blobUrl);
-    }
   };
 
   const normalizeReplacementModel = (character: THREE.Object3D) => {
@@ -125,12 +95,9 @@ const setCharacter = (
   const loadCharacter = async () => {
     for (const source of getModelSources()) {
       try {
-        const gltf =
-          source.type === "encrypted"
-            ? await loadEncryptedGltf(source)
-            : await loadGltfFromUrl(source.url);
+        const gltf = await loadGltfFromUrl(source.url);
 
-        await applyModelDefaults(gltf, source.type === "gltf");
+        await applyModelDefaults(gltf, true);
 
         const character = gltf.scene;
         setCharTimeline(character, camera);
