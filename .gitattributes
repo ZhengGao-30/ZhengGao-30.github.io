@@ -1,0 +1,7 @@
+# core.autocrlf is on for this checkout; never let line-ending conversion touch
+# binaries. A mangled PDF would silently break the Scholar full-text links.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

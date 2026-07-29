@@ -1,0 +1,7 @@
+# https://zhenggao-30.github.io/robots.txt
+# Allow every crawler (Googlebot, Google Scholar, Bingbot, ...) full access.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://zhenggao-30.github.io/sitemap.xml
