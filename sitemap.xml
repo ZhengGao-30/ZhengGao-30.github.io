@@ -3,7 +3,7 @@
   <!-- Update <lastmod> when a page changes materially. Add a <url> entry for every new paper page. -->
   <url>
     <loc>https://zhenggao-30.github.io/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -46,6 +46,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zhenggao-30.github.io/publications/iris.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://zhenggao-30.github.io/publications/watermark-forensics.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -65,7 +71,7 @@
   </url>
   <url>
     <loc>https://zhenggao-30.github.io/publications/slice.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
