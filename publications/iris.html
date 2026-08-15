@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images — Zheng Gao</title>
+  <meta name="description" content="IRIS is a training-free diffusion watermarking scheme that binds a one-time watermark to the visual semantics of the image it marks.">
+  <link rel="canonical" href="https://zhenggao-30.github.io/publications/iris.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- ===== Google Scholar (Highwire Press) citation tags =====
+       One paper per page, as Scholar's inclusion guidelines require. -->
+  <meta name="citation_title" content="IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images">
+  <meta name="citation_author" content="Feng, Xiaoyan">
+  <meta name="citation_author" content="Gao, Zheng">
+  <meta name="citation_author" content="Guan, Tong">
+  <meta name="citation_author" content="Bao, Rui">
+  <meta name="citation_author" content="Zeng, Bokang">
+  <meta name="citation_author" content="Li, Xiaoyu">
+  <meta name="citation_author" content="Jiang, Jiaojiao">
+  <meta name="citation_publication_date" content="2026/08/04">
+  <meta name="citation_technical_report_institution" content="arXiv">
+  <meta name="citation_pdf_url" content="https://zhenggao-30.github.io/papers/iris.pdf">
+  <meta name="citation_abstract_html_url" content="https://zhenggao-30.github.io/publications/iris.html">
+  <meta name="citation_arxiv_id" content="2608.03539">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images">
+  <meta property="og:description" content="A training-free diffusion watermarking scheme that binds a one-time watermark to the visual semantics of the image it marks.">
+  <meta property="og:url" content="https://zhenggao-30.github.io/publications/iris.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2334558b'/><text x='50' y='68' font-size='48' font-family='Georgia,serif' fill='white' text-anchor='middle'>ZG</text></svg>">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images",
+  "headline": "IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Xiaoyan Feng"
+    },
+    {
+      "@type": "Person",
+      "name": "Zheng Gao"
+    },
+    {
+      "@type": "Person",
+      "name": "Tong Guan"
+    },
+    {
+      "@type": "Person",
+      "name": "Rui Bao"
+    },
+    {
+      "@type": "Person",
+      "name": "Bokang Zeng"
+    },
+    {
+      "@type": "Person",
+      "name": "Xiaoyu Li"
+    },
+    {
+      "@type": "Person",
+      "name": "Jiaojiao Jiang"
+    }
+  ],
+  "datePublished": "2026-08-04",
+  "url": "https://zhenggao-30.github.io/publications/iris.html",
+  "sameAs": "https://arxiv.org/abs/2608.03539",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "arXiv",
+    "value": "2608.03539"
+  },
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "arXiv"
+  },
+  "mainEntityOfPage": "https://zhenggao-30.github.io/publications/iris.html",
+  "abstract": "Most in-generation diffusion watermarks embed patterns independent of the image that carries them, and attackers transplant the marks onto images the generator did not produce, resulting in forgery. Binding the mark to visual semantics prevents such transplantation, yet existing bindings anchor to a proxy image rather than the image they mark. Realizing visual-semantic binding inside generation faces two challenges. The mark derives from the image itself yet enters the sampling trajectory before that image exists, and may itself shift the semantics it binds. The binding also meets opposite sensitivity demands, breaking under semantic change while holding through common processing. We present IRIS, a training-free watermarking scheme that embeds an Intrinsic Ring Identifier from Semantics. IRIS reads a content code from the non-watermarked generated image, derives a one-time ring from the code and a secret key, returns to the final low-noise steps of the same trajectory and blends the ring in, after the semantics it binds are settled. To meet the opposite sensitivity demands, the code is read through a canonicalization shared between embedding and detection, holding through common distortions and mild regeneration while flipping under semantic change. Detection recomputes the ring from the query image and the key alone, and the mark therefore fails on a foreign or spliced image, with acceptance tracking semantic displacement. On three prompt datasets IRIS detects reliably and stays close to its same-seed non-watermarked counterpart, a fidelity prior in-generation marks do not reach. While forgeries transfer fixed-pattern marks and regeneration strips post-hoc marks, IRIS alone among the compared marks withstands both.",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://zhenggao-30.github.io/papers/iris.pdf",
+    "encodingFormat": "application/pdf"
+  }
+}
+  </script>
+</head>
+<body>
+
+<div class="paper-page">
+  <p class="paper-back"><a href="../index.html">&larr; Zheng Gao</a></p>
+
+  <article>
+    <span class="badge badge-preprint">Preprint</span>
+    <h1 class="paper-title">IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images</h1>
+    <p class="pub-authors">Xiaoyan Feng, <strong>Zheng Gao</strong>, Tong Guan, Rui Bao, Bokang Zeng, Xiaoyu Li, Jiaojiao Jiang</p>
+    <p class="pub-venue">arXiv, 2026</p>
+    <p class="pub-links">
+      <a href="https://zhenggao-30.github.io/papers/iris.pdf">PDF</a>
+      <a href="https://arxiv.org/abs/2608.03539" target="_blank" rel="noopener">arXiv</a>
+    </p>
+
+    <h2>Abstract</h2>
+    <p class="paper-abstract">Most in-generation diffusion watermarks embed patterns independent of the image that carries them, and attackers transplant the marks onto images the generator did not produce, resulting in forgery. Binding the mark to visual semantics prevents such transplantation, yet existing bindings anchor to a proxy image rather than the image they mark. Realizing visual-semantic binding inside generation faces two challenges. The mark derives from the image itself yet enters the sampling trajectory before that image exists, and may itself shift the semantics it binds. The binding also meets opposite sensitivity demands, breaking under semantic change while holding through common processing. We present IRIS, a training-free watermarking scheme that embeds an Intrinsic Ring Identifier from Semantics. IRIS reads a content code from the non-watermarked generated image, derives a one-time ring from the code and a secret key, returns to the final low-noise steps of the same trajectory and blends the ring in, after the semantics it binds are settled. To meet the opposite sensitivity demands, the code is read through a canonicalization shared between embedding and detection, holding through common distortions and mild regeneration while flipping under semantic change. Detection recomputes the ring from the query image and the key alone, and the mark therefore fails on a foreign or spliced image, with acceptance tracking semantic displacement. On three prompt datasets IRIS detects reliably and stays close to its same-seed non-watermarked counterpart, a fidelity prior in-generation marks do not reach. While forgeries transfer fixed-pattern marks and regeneration strips post-hoc marks, IRIS alone among the compared marks withstands both.</p>
+
+    <h2>BibTeX</h2>
+    <pre class="paper-bibtex"><code>@article{feng2026iris,
+  title         = {IRIS: Visual-Semantic Binding for Forgery-Resistant Watermarking of Diffusion Images},
+  author        = {Feng, Xiaoyan and Gao, Zheng and Guan, Tong and Bao, Rui and Zeng, Bokang and Li, Xiaoyu and Jiang, Jiaojiao},
+  journal       = {arXiv preprint arXiv:2608.03539},
+  year          = {2026},
+}</code></pre>
+  </article>
+
+  <footer>
+    <p>&copy; 2026 Zheng Gao &middot; <a href="../index.html">Home</a></p>
+  </footer>
+</div>
+
+</body>
+</html>
