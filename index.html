@@ -38,7 +38,7 @@
   <meta name="twitter:description" content="MPhil researcher at UNSW Sydney working on generative model watermarking, watermark removal attacks, and deepfake detection.">
   <meta name="twitter:image" content="https://zhenggao-30.github.io/images/profile.jpg">
 
-  <meta name="theme-color" content="#F6F5F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0A1330" media="(prefers-color-scheme: dark)">
   <script>
     /* Applies the saved view/theme before first paint. Without JS the page simply shows everything. */
@@ -430,12 +430,12 @@
 </head>
 <body>
 <a class="skip-link" href="#top-content">Skip to content</a>
-<div class="tri" aria-hidden="true"></div>
+<div class="tri" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Zheng Gao — home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#0F1D44"/><path d="M10 14 L32 40 L54 14 L45 14 L32 29 L19 14 Z" fill="#F6F5F0"/><path d="M32 29 L32 50" stroke="#2E62C9" stroke-width="4"/><circle cx="32" cy="53" r="3.2" fill="#D7261E"/></svg>
+      <span class="mark" aria-hidden="true"></span>
       Zheng Gao
     </a>
     <nav class="site-nav" aria-label="Sections">
@@ -468,54 +468,9 @@
         <div>
           <p class="eyebrow mono"><i aria-hidden="true"></i><span>Zheng Gao</span><span>—</span><span>MPhil Researcher</span></p>
           <h1 id="hero-h"><span class="visually-hidden">Zheng Gao asks: </span>Can we trust what a machine <em>made</em><span class="dot">?</span></h1>
-          <div class="pillars">
-            <div class="pillar"><span class="mono">01 · Mark</span><p>How do we sign what a generative model produces?</p></div>
-            <div class="pillar"><span class="mono">02 · Break</span><p>How do those signatures fail under attack?</p></div>
-            <div class="pillar"><span class="mono">03 · Detect</span><p>How do we tell the genuine from the forged?</p></div>
-          </div>
         </div>
         <div class="hero-art">
-          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-labelledby="t d" class="unit">
-  <title id="t">Technical drawing of a stylised mobile-suit head</title>
-  <desc id="d">A line drawing of a white helmet with a yellow V-fin, blue visor and red chin mark, surrounded by construction circles and registration marks.</desc>
-  <g class="u-hair" fill="none" stroke-width="1">
-    <circle cx="200" cy="230" r="170" stroke-dasharray="2 5"/>
-    <circle cx="200" cy="230" r="128"/>
-    <path d="M200 30V430M30 230H370" stroke-dasharray="6 4"/>
-    <path d="M60 340H340" />
-  </g>
-  <g class="u-ink" fill="none" stroke-width="1.5">
-    <path d="M14 14h18M14 14v18M386 14h-18M386 14v18M14 446h18M14 446v-18M386 446h-18M386 446v-18"/>
-  </g>
-  <path class="u-yellow u-ink" stroke-width="1.5" stroke-linejoin="round" d="M200 150 L124 62 L150 52 L200 110 L250 52 L276 62 Z"/>
-  <path class="u-ink" fill="none" stroke-width="1" d="M200 110 V150"/>
-  <path class="u-paper u-ink" stroke-width="1.8" stroke-linejoin="round" d="M112 196 C112 138 150 120 200 120 C250 120 288 138 288 196 L288 262 L262 304 L138 304 L112 262 Z"/>
-  <path class="u-ink" fill="none" stroke-width="1" d="M138 304 L150 262 H250 L262 304 M150 262 L112 262 M250 262 L288 262"/>
-  <path class="u-ink" fill="none" stroke-width="1" d="M126 178 C150 160 250 160 274 178"/>
-  <path class="u-blue u-ink" stroke-width="1.2" stroke-linejoin="round" d="M130 196 L190 202 L186 222 L134 216 Z"/>
-  <path class="u-blue u-ink" stroke-width="1.2" stroke-linejoin="round" d="M270 196 L210 202 L214 222 L266 216 Z"/>
-  <path class="u-ink" fill="none" stroke-width="1" d="M176 274H224M180 283H220M184 292H216"/>
-  <path class="u-paper u-ink" stroke-width="1.5" d="M92 190 H112 V252 H92 Z"/>
-  <path class="u-paper u-ink" stroke-width="1.5" d="M308 190 H288 V252 H308 Z"/>
-  <path class="u-ink" fill="none" stroke-width="1" d="M96 204H108M96 214H108M96 224H108M304 204H292M304 214H292M304 224H292"/>
-  <rect class="u-red" x="188" y="296" width="24" height="5"/>
-  <path class="u-ink" fill="none" stroke-width="1.5" d="M168 304 V332 H232 V304"/>
-  <path class="u-ink" fill="none" stroke-width="1.5" stroke-linejoin="round" d="M96 372 L150 332 H250 L304 372"/>
-  <path class="u-blue" d="M96 372 L150 332 H170 L132 372 Z"/>
-  <path class="u-blue" d="M304 372 L250 332 H230 L268 372 Z"/>
-  <g class="u-hair" fill="none" stroke-width="1">
-    <path d="M60 120V304M54 120h12M54 304h12"/>
-    <path d="M112 394H288M112 388v12M288 388v12"/>
-  </g>
-  <g class="u-label" font-size="9.5" letter-spacing="1.2">
-    <text x="48" y="216" transform="rotate(-90 48 216)" text-anchor="middle">H 184</text>
-    <text x="200" y="412" text-anchor="middle">W 176 — SENSOR HEAD</text>
-    <text x="14" y="454">FIG. 01</text>
-    <text x="386" y="454" text-anchor="end">WM—01 / RX</text>
-  </g>
-  <circle class="u-red" cx="200" cy="230" r="2.4"/>
-</svg>
-
+          <img src="assets/art/hero-panel.webp" width="1000" height="913" alt="Abstract composition of overlapping white, blue and navy panels with a single red disc, generated with GPT image generation" decoding="async" fetchpriority="high">
         </div>
       </div>
       <p class="affil mono">School of Computer Science &amp; Engineering · UNSW Sydney</p>
@@ -524,6 +479,16 @@
         <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener"><span aria-hidden="true">⌥</span>github.com/ZhengGao-30</a>
         <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener"><span aria-hidden="true">G</span>Google Scholar</a>
         <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener"><span aria-hidden="true">iD</span>ORCID 0009-0004-0330-3493</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Research questions">
+    <div class="wrap">
+      <div class="pillars">
+            <div class="pillar"><span class="mono">01 · Mark</span><p>How do we sign what a generative model produces?</p></div>
+            <div class="pillar"><span class="mono">02 · Break</span><p>How do those signatures fail under attack?</p></div>
+            <div class="pillar"><span class="mono">03 · Detect</span><p>How do we tell the genuine from the forged?</p></div>
       </div>
     </div>
   </section>
@@ -833,7 +798,11 @@
     </section>
 
     <!-- ======================= Projects ======================= -->
-    <section class="sec" id="projects" aria-labelledby="projects-h">
+    <figure class="banner">
+      <img src="assets/art/signal-banner.webp" width="1600" height="500" loading="lazy" decoding="async" alt="Abstract artwork: blue grain on the left resolving into concentric blue rings with one red ring, like a signal emerging from noise; generated with GPT image generation">
+    </figure>
+
+    <section class="sec on-blue" id="projects" aria-labelledby="projects-h">
       <div class="sec-grid">
         <div class="sec-head"><span class="mono"><b>04</b> / Units</span><h2 id="projects-h">Projects</h2></div>
         <div class="projects">
@@ -925,7 +894,7 @@
     <p>© 2026 Zheng Gao · Last updated October 2026</p>
     <p><a href="#top">Back to top ↑</a></p>
   </div>
-  <div class="tri" aria-hidden="true"></div>
+  <div class="tri" aria-hidden="true"><i></i><i></i><i></i></div>
 </footer>
 
 <script src="assets/site.js" defer></script>
