@@ -51,16 +51,17 @@
         var t = localStorage.getItem("zg-theme");
         if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
       } catch (e) {}
-      if (/^#(education|news|publications)$/.test(location.hash)) v = "expanded";
+      if (/^#(hello|research|news|publications|projects|education|play|contact)$/.test(location.hash)) v = "expanded";
       d.setAttribute("data-view", v);
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/art/logomark-32.png">
+  <link rel="apple-touch-icon" href="assets/art/logomark.png">
 
   <script type="application/ld+json">
   {
@@ -438,18 +439,17 @@
 <a class="skip-link" href="#top-content">Skip to content</a>
 <div class="tri" aria-hidden="true"><i></i><i></i><i></i></div>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Zheng Gao — home">
-      <span class="mark" aria-hidden="true"></span>
-      Zheng Gao
-    </a>
+    <a class="brand" href="#top" aria-label="Zheng Gao — home">Zheng Gao</a>
     <nav class="site-nav" aria-label="Sections">
-      <a href="#about">About</a>
+      <a href="#research">Research</a>
       <a href="#news">News</a>
       <a href="#publications">Publications</a>
       <a href="#projects">Projects</a>
       <a href="#education">Experience</a>
+      <a href="#play" data-play-name>Playground</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="tools">
       <div class="seg" role="group" aria-label="Homepage view">
@@ -464,75 +464,131 @@
   </div>
 </header>
 
-<main id="top-content">
-<div id="top"></div>
+<main id="top-content" tabindex="-1">
 
-  <!-- ======================= Hero ======================= -->
-  <section class="hero" aria-labelledby="hero-h">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow mono"><i aria-hidden="true"></i><span>Zheng Gao</span><span>—</span><span>M.Phil. Researcher</span></p>
-          <h1 id="hero-h"><span class="visually-hidden">Zheng Gao asks: </span>Can we trust what a machine <em>made</em><span class="dot">?</span></h1>
-        </div>
-        <div class="hero-art">
-          <img src="assets/art/hero.webp" width="1260" height="610" alt="Illustration of an invisible watermark: a calm generated landscape dissolves into diffusion noise, a faint ring pattern (the hidden watermark) emerges in the noise, and a small lens marks where the detector recovers it in red." decoding="async" fetchpriority="high">
-        </div>
-      </div>
-      <p class="affil mono">School of Computer Science &amp; Engineering · UNSW Sydney</p>
-      <div class="contact">
-        <a href="mailto:zheng.gao1@unsw.edu.au"><span aria-hidden="true">✉</span>zheng.gao1@unsw.edu.au</a>
-        <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener"><span aria-hidden="true">⌥</span>github.com/ZhengGao-30</a>
-        <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener"><span aria-hidden="true">G</span>Google Scholar</a>
-        <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener"><span aria-hidden="true">iD</span>ORCID 0009-0004-0330-3493</a>
-      </div>
+<div class="view-minimal" id="view-minimal">
+  <section class="m-hero" aria-labelledby="m-h1">
+    <h1 id="m-h1"><span class="visually-hidden">Zheng Gao asks: </span>Can we trust what a machine <em>made</em>?</h1>
+    <div class="m-cols">
+      <div><h2>Mark</h2><p>How do we sign what a generative model produces?</p></div>
+      <div><h2>Break</h2><p>How do those signatures fail under attack?</p></div>
+      <div><h2>Detect</h2><p>How do we tell the genuine from the forged?</p></div>
     </div>
   </section>
 
-  <section class="band" aria-label="Research questions">
-    <div class="wrap">
-      <div class="pillars">
-            <div class="pillar"><span class="mono">01 · Mark</span><p>How do we sign what a generative model produces?</p></div>
-            <div class="pillar"><span class="mono">02 · Break</span><p>How do those signatures fail under attack?</p></div>
-            <div class="pillar"><span class="mono">03 · Detect</span><p>How do we tell the genuine from the forged?</p></div>
-      </div>
-    </div>
+  <section class="m-sec" aria-labelledby="m-news-h">
+    <h2 class="m-h" id="m-news-h">News</h2>
+    <ul class="m-news">
+      <li><span class="m-date">Oct 2026</span><span><a href="publications/sharp-privacy-profiles.html">Sharp Privacy Profiles</a> (NeurIPS InfPriv workshop, poster) and <a href="publications/conformal-co-visibility.html">Conformal Calibration of Co-Visibility Scores</a> (DICTA) accepted.</span></li>
+      <li><span class="m-date">Oct 2026</span><span><a href="publications/shift.html">SHIFT</a> accepted as an oral at the NeurIPS 2026 STODY workshop.</span></li>
+      <li><span class="m-date">Oct 2026</span><span>New preprint: <a href="https://arxiv.org/abs/2610.08137" target="_blank" rel="noopener">Rethinking Visual Provenance</a>.</span></li>
+    </ul>
+    <p class="m-more"><a href="#news" data-goto>All news <span class="arr" aria-hidden="true">→</span></a></p>
   </section>
 
+  <section class="m-sec" aria-labelledby="m-work-h">
+    <h2 class="m-h" id="m-work-h">Selected recent work</h2>
+    <ul class="m-work">
+        <li>
+          <p class="m-tag">WWW 2026</p>
+          <h3 class="m-title"><a href="publications/breaking-semantic-aware-watermarks.html">Breaking Semantic-Aware Watermarks via LLM-Guided Coherence-Preserving Semantic Injection</a></h3>
+          <p class="m-blurb">An LLM-guided attack showing that the semantic binding in content-aware watermarks can be bypassed by globally coherent rewrites.</p>
+          <p class="m-links"><a href="publications/breaking-semantic-aware-watermarks.html">Paper</a> <a href="https://arxiv.org/abs/2602.21593" target="_blank" rel="noopener">arXiv</a> <a href="papers/breaking-semantic-aware-watermarks.pdf" target="_blank" rel="noopener">PDF</a> <a href="https://github.com/ZhengGao-30/CSI-Attack" target="_blank" rel="noopener">Code</a></p>
+        </li>
+        <li>
+          <p class="m-tag">ACM MM 2026</p>
+          <h3 class="m-title"><a href="publications/lava.html">LAVA: Layered Audio-Visual Anti-tampering Watermarking for Robust Deepfake Detection and Localization</a></h3>
+          <p class="m-blurb">A layered audio-visual watermark that detects deepfakes and locates the tampered segment.</p>
+        </li>
+        <li>
+          <p class="m-tag">BMVC 2026 · Oral</p>
+          <h3 class="m-title"><a href="publications/slice.html">SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking</a></h3>
+          <p class="m-blurb">A diffusion-image watermark placed in compartments of the semantic latent space, built to survive removal and regeneration attacks.</p>
+        </li>
+        <li>
+          <p class="m-tag">NeurIPS 2026 STODY · Oral</p>
+          <h3 class="m-title"><a href="publications/shift.html">SHIFT: Stochastic Hidden-Trajectory Deflection for Removing Diffusion-based Watermark</a></h3>
+          <p class="m-blurb">A training-free attack that deflects the reverse denoising trajectory to remove diffusion watermarks.</p>
+        </li>
+        <li>
+          <p class="m-tag">ECCV 2026</p>
+          <h3 class="m-title"><a href="publications/bip.html">BIP: Bi-level Information Transfer and Completion Prompting for Visual Recognition with Missing Modalities</a></h3>
+          <p class="m-blurb">A bi-level prompting framework that keeps visual recognition accurate when input modalities are partly missing.</p>
+        </li>
+        <li>
+          <p class="m-tag">Project page</p>
+          <h3 class="m-title"><a href="publications/trace.html">TRACE: A Two-Channel Robust Attribution Watermark via Complementary Embeddings for LLM-Agent Trajectories</a></h3>
+          <p class="m-blurb">Two complementary watermark channels on an LLM agent’s trajectory, so attribution survives deleted or rewritten steps.</p>
+          <p class="m-links"><a href="https://zhenggao-30.github.io/TRACE/" target="_blank" rel="noopener">Project page &amp; demo</a> <a href="https://arxiv.org/abs/2607.08400" target="_blank" rel="noopener">arXiv</a></p>
+        </li>
+    </ul>
+    <p class="m-more"><a href="#publications" data-goto>All publications <span class="arr" aria-hidden="true">→</span></a></p>
+  </section>
+
+  <section class="m-sec m-about" aria-labelledby="m-about-h">
+    <details>
+      <summary id="m-about-h">About me</summary>
+      <div class="m-about-body">
+        <p>I am an M.Phil. researcher at <a href="https://www.unsw.edu.au/" target="_blank" rel="noopener">UNSW Sydney</a>, School of Computer Science and Engineering, advised by <a href="https://www.unsw.edu.au/staff/jiaojiao-jiang" target="_blank" rel="noopener">Dr. Jiaojiao Jiang</a>. I study the security and provenance of AI-generated content: watermarking for diffusion models and large-language-model agents, attacks on those watermarks, and proactive deepfake defense. I am based in Sydney, NSW, Australia.</p>
+        <p class="m-aside">Research threads, the full publication list, projects and more are in the <a href="#research" data-goto>Expanded view</a>.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer class="m-footer">
+    <p>© 2026 Zheng Gao · Last updated October 2026</p>
+    <p class="m-flinks"><a href="mailto:zheng.gao1@unsw.edu.au">Email</a> <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a> <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a> <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID</a></p>
+  </footer>
+</div>
+
+
+<div class="view-expanded" id="view-expanded">
   <div class="wrap">
 
-    <!-- ======================= About ======================= -->
-    <section class="sec rv" id="about" aria-labelledby="about-h">
+    <section class="hello" id="hello" aria-labelledby="hello-h">
+      <div class="portrait"><img src="images/profile.jpg" alt="Zheng Gao" width="148" height="148" loading="lazy" decoding="async"></div>
+      <div class="hello-body">
+        <h1 id="hello-h">Hello, I’m Zheng Gao.</h1>
+        <p class="hello-sub mono">Academic bio</p>
+        <p>I am an M.Phil. researcher in Computer Science and Engineering at <a href="https://www.unsw.edu.au/" target="_blank" rel="noopener">UNSW Sydney</a>, advised by <a href="https://www.unsw.edu.au/staff/jiaojiao-jiang" target="_blank" rel="noopener">Dr. Jiaojiao Jiang</a>. My research investigates the <em>security and provenance of AI-generated content</em>, with a central focus on watermarking for diffusion models and large-language-model agents, and on proactive deepfake defense. I completed a BSc in Data Science at City University of Macau (2021–2025) and am based in Sydney, NSW, Australia.</p>
+        <p class="contact-row mono"><a href="mailto:zheng.gao1@unsw.edu.au">zheng.gao1@unsw.edu.au</a><a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a><a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID 0009-0004-0330-3493</a></p>
+      </div>
+    </section>
+
+    <section class="sec" id="research" aria-labelledby="research-h">
       <div class="sec-grid">
-        <div class="sec-head"><span class="mono"><b>01</b> / Profile</span><h2 id="about-h">About</h2></div>
-        <div class="about">
-          <div class="portrait"><img src="images/profile.jpg" alt="Zheng Gao" width="148" height="148"></div>
-          <div>
-            <p>
-        My research investigates the <em>security and provenance of AI-generated content</em>, with a central focus on
-        watermarking for diffusion models and large-language-model agents, and on proactive deepfake defense.
-      </p>
-            <p class="about-where mono">M.Phil. researcher · <a href="https://www.unsw.edu.au/" target="_blank" rel="noopener">University of New South Wales</a> · advised by <a href="https://www.unsw.edu.au/staff/jiaojiao-jiang" target="_blank" rel="noopener">Dr.&nbsp;Jiaojiao Jiang</a> · Sydney, NSW, Australia</p>
+        <div class="sec-head"><span class="mono"><b>01</b> / Research</span></div>
+        <div>
+          <div class="r-lead">
+            <div class="r-lead-text">
+              <h2 id="research-h">Can we trust what a machine <em>made</em>?</h2>
+              <p>I work on the security and provenance of AI-generated content: how generated media and agent outputs can be marked, how those marks can be attacked, and how the genuine can be told from the forged.</p>
+            </div>
+            <figure class="r-hero"><img src="assets/art/hero.webp" width="1260" height="610" alt="Illustration of an invisible watermark: a calm generated landscape dissolves into diffusion noise, a faint ring pattern (the hidden watermark) emerges in the noise, and a lens reveals the recovered mark in red." loading="lazy" decoding="async" fetchpriority="low"></figure>
+          </div>
+          <div class="r-three">
+            <article><p class="mono"><b>01</b> Mark</p><h3>How do we sign what a generative model produces?</h3><p>Watermarks that live inside diffusion models and inside the trajectories of LLM agents.</p><p class="r-kw">Semantic-latent embedding · Attribution · Provenance</p></article>
+            <article><p class="mono"><b>02</b> Break</p><h3>How do those signatures fail under attack?</h3><p>Semantic manipulation and trajectory deflection show where today’s watermarks give way.</p><p class="r-kw">Removal attacks · Regeneration · Semantic rewriting</p></article>
+            <article><p class="mono"><b>03</b> Detect</p><h3>How do we tell the genuine from the forged?</h3><p>Layered audio-visual marks detect deepfakes and locate the tampered segments.</p><p class="r-kw">Deepfake detection · Tamper localization · Forensics</p></article>
           </div>
           <div class="threads-wrap">
             <h3 class="threads-h mono">Active research threads</h3>
             <ol class="threads">
-              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-attack.webp" width="900" height="600" alt="A watermark drawn as concentric rings over a calm landscape: half of the rings have been cleanly rewritten in red while the picture underneath stays coherent, the idea behind semantic and trajectory-deflection attacks on watermarks." loading="lazy" decoding="async"><span class="thread-n">01</span></figure><h4 class="thread-t">Adversarial analysis of generative watermarking</h4><p class="thread-d">exposing structural vulnerabilities of semantic-aware and diffusion-noise watermarks through LLM-guided semantic manipulation and stochastic trajectory deflection.</p></li>
-              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-slice.webp" width="900" height="600" alt="An image split into a grid of compartments, each carrying a small dot mark; after the image is regenerated and smudged the marks inside the compartments are still intact." loading="lazy" decoding="async"><span class="thread-n">02</span></figure><h4 class="thread-t">Robust watermarking design</h4><p class="thread-d">semantic-latent embedding schemes for diffusion models that balance imperceptibility with resistance to removal and regeneration attacks.</p></li>
-              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-trace.webp" width="900" height="600" alt="An agent's action trajectory as nodes along two interleaved channels; some steps are deleted or rewritten, yet a faint seal pattern on the remaining nodes still identifies the owner." loading="lazy" decoding="async"><span class="thread-n">03</span></figure><h4 class="thread-t">Attribution and forensics for AI-generated content</h4><p class="thread-d">two-channel attribution watermarks for LLM-agent decision trajectories, tamper-localizing watermarks for coding-agent trajectories, visual provenance across generated and code-rendered media, and information-theoretic characterization of what watermark forensics can and cannot recover.</p></li>
-              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-lava.webp" width="900" height="600" alt="A strip of video frames above an audio waveform with one tampered segment bracketed across both tracks, showing detection and localization over audio and video." loading="lazy" decoding="async"><span class="thread-n">04</span></figure><h4 class="thread-t">Proactive deepfake forensics</h4><p class="thread-d">layered audio-visual watermarking that supports both detection and segment-level tampering localization.</p></li>
-              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-agent.webp" width="900" height="600" alt="A retry loop passing through a gate, a bounded privacy-envelope curve under a ceiling line, and a stack of held-out history cards being checked." loading="lazy" decoding="async"><span class="thread-n">05</span></figure><h4 class="thread-t">Reliability and privacy of LLM agents</h4><p class="thread-d">certifying that updated agents retain earlier capabilities, and privacy accounting for validation-retry wrappers.</p></li>
-              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-graph.webp" width="900" height="600" alt="A graph with missing edges and noisy nodes being repaired by dotted retrieval arcs from a small external source." loading="lazy" decoding="async"><span class="thread-n">06</span></figure><h4 class="thread-t">Robust learning under deficient supervision</h4><p class="thread-d">large-language-model–augmented graph learning under noisy or incomplete supervision.</p></li>
+              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-attack.webp" width="1200" height="800" alt="A watermark drawn as concentric rings over a calm landscape: half of the rings have been cleanly rewritten in red while the picture underneath stays coherent, the idea behind semantic and trajectory-deflection attacks on watermarks." loading="lazy" decoding="async"><span class="thread-n">01</span></figure><h4 class="thread-t">Adversarial analysis of generative watermarking</h4><p class="thread-d">exposing structural vulnerabilities of semantic-aware and diffusion-noise watermarks through LLM-guided semantic manipulation and stochastic trajectory deflection.</p></li>
+              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-slice.webp" width="1200" height="800" alt="An image split into a grid of compartments, each carrying a small dot mark; after the image is regenerated and smudged the marks inside the compartments are still intact." loading="lazy" decoding="async"><span class="thread-n">02</span></figure><h4 class="thread-t">Robust watermarking design</h4><p class="thread-d">semantic-latent embedding schemes for diffusion models that balance imperceptibility with resistance to removal and regeneration attacks.</p></li>
+              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-trace.webp" width="1200" height="800" alt="An agent's action trajectory as nodes along two interleaved channels; some steps are deleted or rewritten, yet a faint seal pattern on the remaining nodes still identifies the owner." loading="lazy" decoding="async"><span class="thread-n">03</span></figure><h4 class="thread-t">Attribution and forensics for AI-generated content</h4><p class="thread-d">two-channel attribution watermarks for LLM-agent decision trajectories, tamper-localizing watermarks for coding-agent trajectories, visual provenance across generated and code-rendered media, and information-theoretic characterization of what watermark forensics can and cannot recover.</p></li>
+              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-lava.webp" width="1200" height="800" alt="A strip of video frames above an audio waveform with one tampered segment bracketed across both tracks, showing detection and localization over audio and video." loading="lazy" decoding="async"><span class="thread-n">04</span></figure><h4 class="thread-t">Proactive deepfake forensics</h4><p class="thread-d">layered audio-visual watermarking that supports both detection and segment-level tampering localization.</p></li>
+              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-agent.webp" width="1200" height="800" alt="A retry loop passing through a gate, a bounded privacy-envelope curve under a ceiling line, and a stack of held-out history cards being checked." loading="lazy" decoding="async"><span class="thread-n">05</span></figure><h4 class="thread-t">Reliability and privacy of LLM agents</h4><p class="thread-d">certifying that updated agents retain earlier capabilities, and privacy accounting for validation-retry wrappers.</p></li>
+              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-graph.webp" width="1200" height="800" alt="A graph with missing edges and noisy nodes being repaired by dotted retrieval arcs from a small external source." loading="lazy" decoding="async"><span class="thread-n">06</span></figure><h4 class="thread-t">Robust learning under deficient supervision</h4><p class="thread-d">large-language-model–augmented graph learning under noisy or incomplete supervision.</p></li>
             </ol>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================= News ======================= -->
-    <section class="sec rv" id="news" aria-labelledby="news-h">
+    <section class="sec" id="news" aria-labelledby="news-h">
       <div class="sec-grid">
-        <div class="sec-head"><span class="mono"><b>02</b> / Log</span><h2 id="news-h">News</h2></div>
+        <div class="sec-head"><span class="mono"><b>02</b> / News</span><h2 id="news-h">News</h2></div>
         <div>
           <ul class="news-list">
         <li>
@@ -604,15 +660,13 @@
           <span>Started my MPhil at UNSW Sydney.</span>
         </li>
       </ul>
-          <p class="more"><button type="button" data-view-btn="expanded">All news →</button></p>
         </div>
       </div>
     </section>
 
-    <!-- ======================= Publications ======================= -->
     <section class="sec" id="publications" aria-labelledby="pubs-h">
       <div class="sec-grid">
-        <div class="sec-head"><span class="mono"><b>03</b> / Spec sheet</span><h2 id="pubs-h">Publications</h2></div>
+        <div class="sec-head"><span class="mono"><b>03</b> / Publications</span><h2 id="pubs-h">Publications</h2></div>
         <div>
       <p class="pub-count mono">20 publications — 1 journal · 6 conference · 3 workshop · 10 preprints</p>
       <div class="pubs">
@@ -859,15 +913,13 @@
       </article>
 
       </div>
-          <p class="more"><button type="button" data-view-btn="expanded">All publications →</button></p>
         </div>
       </div>
     </section>
 
-    <!-- ======================= Projects ======================= -->
     <section class="sec on-tint" id="projects" aria-labelledby="projects-h">
       <div class="sec-grid">
-        <div class="sec-head"><span class="mono"><b>04</b> / Units</span><h2 id="projects-h">Projects</h2></div>
+        <div class="sec-head"><span class="mono"><b>04</b> / Projects</span><h2 id="projects-h">Projects</h2></div>
         <div>
           <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Electron</span><span>Node.js</span><span>MCP</span><span>React 19</span><span>Vite</span><span>Cloudflare Workers</span><span>GSAP</span><span>WebGL</span><span>Tailwind CSS</span><span>GitHub Pages</span><span>Electron</span><span>Node.js</span><span>MCP</span><span>React 19</span><span>Vite</span><span>Cloudflare Workers</span><span>GSAP</span><span>WebGL</span><span>Tailwind CSS</span><span>GitHub Pages</span></div></div>
           <div class="projects">
@@ -892,7 +944,6 @@
         <article class="proj rv" style="--i:1" data-tilt>
           <div class="p-media">
             <img src="assets/art/cover-csi.webp" width="1200" height="800" alt="A watermark drawn as concentric rings over a calm landscape, half of the rings rewritten in red while the picture stays coherent, the idea behind the CSI attack" loading="lazy" decoding="async">
-          <div class="mock" aria-hidden="true"><div class="mock-bar"><i></i><i></i><i></i><span>csi-attack.evanyifanyang2026.workers.dev</span></div><img src="assets/art/shot-csi.webp" width="960" height="600" alt="" loading="lazy" decoding="async"></div>
             <span class="p-glow" aria-hidden="true"></span>
           </div>
           <div class="p-body">
@@ -910,7 +961,7 @@
         </article>
         <article class="proj rv" style="--i:2" data-tilt>
           <div class="p-media">
-            <img src="assets/art/thread-trace.webp" width="1200" height="800" alt="An agent trajectory as nodes on two interleaved channels with deleted and tampered steps, where a seal pattern on the remaining nodes still identifies the owner" loading="lazy" decoding="async">
+            <img src="assets/art/cover-trace.webp" width="1200" height="800" alt="An agent trajectory as nodes on two interleaved channels with deleted and tampered steps, where a seal pattern on the remaining nodes still identifies the owner" loading="lazy" decoding="async">
             <span class="p-glow" aria-hidden="true"></span>
           </div>
           <div class="p-body">
@@ -930,8 +981,8 @@
         </div>
       </div>
     </section>
-    <!-- ======================= Education ======================= -->
-    <section class="sec rv" id="education" aria-labelledby="edu-h">
+
+    <section class="sec" id="education" aria-labelledby="edu-h">
       <div class="sec-grid">
         <div class="sec-head"><span class="mono"><b>05</b> / Record</span><h2 id="edu-h">Education &amp; Experience</h2></div>
         <div>
@@ -1010,16 +1061,58 @@
       </div>
     </section>
 
-  </div>
-</main>
+    <!-- ===== PLAYGROUND ======================================================
+         Section name lives in assets/site.js (PLAY_NAME) and in the three
+         [data-play-name] spots below. To add content, copy one of the
+         <article class="play-item"> templates from DESIGN.md into .play-grid.
+         The "coming soon" tile of a kind disappears once a real item of that kind exists;
+         the All / Games / Videos filter appears when both kinds exist. -->
+    <section class="sec" id="play" aria-labelledby="play-h">
+      <div class="sec-grid">
+        <div class="sec-head"><span class="mono"><b>06</b> / Play</span><h2 id="play-h" data-play-name>Playground</h2></div>
+        <div>
+          <p class="play-sub">Games, films and small experiments – coming soon.</p>
+          <div class="play-filter" role="group" aria-label="Filter playground items" hidden>
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="game" aria-pressed="false">Games</button>
+            <button type="button" data-filter="video" aria-pressed="false">Videos</button>
+          </div>
+          <div class="play-grid">
+            <article class="play-soon" data-kind="game">
+              <figure class="play-fig"><img src="assets/art/play-games.webp" width="1200" height="800" alt="A small paper-layered world, a tiny diorama with a glowing play marker, standing for the games I plan to share here." loading="lazy" decoding="async"></figure>
+              <div class="play-meta"><p class="play-tag mono">Games · Coming soon</p><h3>Games</h3><p>Interactive worlds and little experiments I build for fun.</p></div>
+            </article>
+            <article class="play-soon" data-kind="video">
+              <figure class="play-fig"><img src="assets/art/play-videos.webp" width="1200" height="800" alt="A film frame with a play triangle motif, standing for the short films and screen recordings I plan to share here." loading="lazy" decoding="async"></figure>
+              <div class="play-meta"><p class="play-tag mono">Videos · Coming soon</p><h3>Videos</h3><p>Short films and screen recordings of things I make.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>© 2026 Zheng Gao · Last updated October 2026</p>
-    <p><a href="#top">Back to top ↑</a></p>
+    <section class="sec contact" id="contact" aria-labelledby="contact-h">
+      <div class="sec-grid">
+        <div class="sec-head"><span class="mono"><b>07</b> / Contact</span></div>
+        <div>
+          <h2 id="contact-h">Let’s talk.</h2>
+          <p class="contact-line">Questions about watermarking, provenance or the security of AI agents? I would be glad to hear from you.</p>
+          <p class="contact-row mono"><a href="mailto:zheng.gao1@unsw.edu.au">zheng.gao1@unsw.edu.au</a><a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a><a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a><a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID</a></p>
+          <figure class="contact-art"><img src="assets/art/contact-banner.webp" width="1500" height="500" alt="A quiet horizon at dusk where the hidden watermark rings emerge faintly in the distance, closing the story of the opening illustration." loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+    </section>
+
   </div>
-  <div class="tri" aria-hidden="true"><i></i><i></i><i></i></div>
-</footer>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Zheng Gao · Last updated October 2026</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+</div>
+
+</main>
 
 <script src="assets/site.js" defer></script>
 </body>

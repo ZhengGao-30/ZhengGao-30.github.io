@@ -49,30 +49,52 @@ All text pairs ≥ 4.5:1 in all three palettes (lowest: C light, 4.97).
 ## Type
 Instrument Serif (display), Inter (body 17px/1.65), JetBrains Mono (spec-sheet labels). System fallbacks.
 
-## Layout
-Hero (headline + hero illustration) → pale-blue band with Mark / Break / Detect → About with six illustrated research threads → News → Publications (grouped by type, count line) → Projects (pale-blue section, case-study cards) → Education & Experience (Expanded only) → footer with slim tricolour rule.
-- **Minimal / Expanded** toggle persisted in `localStorage` (`zg-view`); default Minimal. Minimal: six thread tiles with titles, 3 news, 6 selected publications; Expanded adds thread descriptions, all news, all 20 publications with "Contribution" lines, Education & Experience (GPA/coursework live there). Without JS everything shows.
-- Theme toggle (`zg-theme`), default follows `prefers-color-scheme`.
-- Projects cards: marquee of the stack, lead card + two cards, red index numerals, native `<details>` for CV bullets, cursor spotlight + subtle tilt on fine pointers (off with reduced motion), clip-path image reveal with stagger. Stacked on mobile, nothing hover-only.
+## Minimal / Expanded (round 5)
+Modelled on xiaoyulics.com (reference measured: Minimal ≈1,900 px tall, zero images, Source Serif 4 + Inter). The two views are **separate DOM blocks** (`#view-minimal`, `#view-expanded`) switched by `data-view` on `<html>` (default Minimal, persisted in `localStorage` `zg-view`; `#hash` links to Expanded content switch automatically; no-JS shows Expanded in full).
+- **Minimal** = text only, **zero images** (nothing in it requests an image; fonts + css + js only): name + `Minimal | Expanded` text switch + theme toggle; hero question (Source Serif 4, ~40–50 px) + Mark / Break / Detect columns; News (3 ruled rows); Selected recent work (6 titles, one sentence each, first item with a link row, tiny muted venue tags); "All publications →"; About me (collapsible paragraph); footer. 800 px measure, hairline rules, palette A tokens.
+- **Expanded** = the unfolded page: Hello / Academic bio with photo, 01 Research (question + hero illustration, Mark/Break/Detect expanded, six illustrated research threads), 02 News, 03 Publications (20), 04 Projects (case-study cards), 05 Education & Experience, 06 Playground, 07 Contact. The anchor nav appears only here.
+- Switching: gentle fade-in (off with reduced motion), `aria-pressed` on the switch, live-region announcement, focus moves to `<main>`.
+- Theme toggle (`zg-theme`), default follows `prefers-color-scheme`. Projects cards: marquee of the stack, lead card + two cards, `<details>` for CV bullets, cursor spotlight + subtle tilt on fine pointers.
 
-## Illustrations (generated with OpenAI image generation through the local Codex CLI)
-All assets in `assets/art/`, ≤ 117 KB each, webp, width/height set, lazy-loaded below the fold, descriptive alt text. Common style line used in every prompt: *refined flat editorial / scientific-journal illustration, thin precise linework, soft layered flat shapes, a hint of paper grain, generous negative space; whole canvas is the flat ground #F8F6EE; palette strictly ground #F8F6EE, ink navy #17223B, muted cobalt #2A4F96, pale blue tint #CEE0F5, hairline grey #AAB2BE, soft vermilion #D15E49 used sparingly; no gradients/glow/neon/3D; no text, letters, numbers, logos, robots, characters or faces; 3:2.*
+## Playground (Expanded, section 06)
+Rename in one place: `PLAY_NAME` at the top of `assets/site.js` (it fills every `[data-play-name]` element: the nav link and the section heading). The mono label `06 / Play` and the subtitle line are plain HTML in `index.html` (`#play`).
+Behaviour: two "coming soon" tiles (`.play-soon`, kinds `game` / `video`). As soon as a real `.play-item` of a kind exists, the tile of that kind disappears; when both kinds exist the `All · Games · Videos` filter appears.
 
-| file | depicts | concept prompt (abridged) |
-|---|---|---|
-| `hero.webp` | the core theme: invisible watermark in a generated image | a calm landscape tile whose right half dissolves into diffusion-noise grain; faint concentric rings (hidden watermark) emerge in the noise; a thin scan line and a lens with a small vermilion detection blob |
-| `thread-attack.webp` | Adversarial analysis (CSI, SHIFT, DRIFT) | a dotted trajectory through noise is deflected (vermilion) around a concentric-ring watermark and lands in an intact landscape tile |
-| `thread-slice.webp` | Robust watermarking design (SLICE) | an image split into a 4×4 grid of compartments, each with a small dot mark; after regeneration/smudging the marks stay crisp |
-| `thread-trace.webp` | Attribution & forensics (TRACE, TrajMark) | three rows of nodes on two interleaved channels, a gap of deleted steps and tampered shapes, a seal motif on remaining nodes and a bracket (owner still recoverable). Also the TRACE project cover |
-| `thread-lava.webp` | Proactive deepfake forensics (LAVA) | filmstrip above an audio waveform with a tampered segment bracketed across both tracks |
-| `thread-agent.webp` | Reliability & privacy of LLM agents | retry loop through a gate, bounded privacy-envelope curve under a ceiling, held-out history cards with checks |
-| `thread-graph.webp` | Robust learning under deficient supervision (RoGRAD) | graph with missing edges and noisy nodes repaired by dotted vermilion retrieval arcs from a small source |
-| `cover-csi.webp` | CSI Attack cover | concentric-ring watermark over a landscape, half of the rings rewritten in vermilion while the picture stays coherent (+ real live-site screenshot `shot-csi.webp` in a browser-window mock) |
-| `cover-baton.webp` | Baton cover | one blank window frame handing task tokens along lines to four worker nodes, a ledger of bars below |
+**How to add a game** — paste inside `<div class="play-grid">` in `index.html`:
+```html
+<article class="play-item" data-kind="game">
+  <a class="play-poster" href="https://example.com/my-game/" target="_blank" rel="noopener">
+    <img src="assets/play/my-game-poster.webp" width="1200" height="800" alt="Describe the game" loading="lazy">
+  </a>
+  <div class="play-meta">
+    <p class="play-tag mono">Game · 2026</p>
+    <h3>My game title</h3>
+    <p>One-line blurb.</p>
+    <ul class="play-tags"><li>Godot</li><li>Web</li></ul>
+    <p class="pub-links"><a href="https://example.com/my-game/" target="_blank" rel="noopener">Play</a> <a href="https://github.com/ZhengGao-30/my-game" target="_blank" rel="noopener">Code</a></p>
+  </div>
+</article>
+```
+**How to add a video (self-hosted, small files only)**:
+```html
+<article class="play-item" data-kind="video">
+  <video controls preload="none" poster="assets/play/my-film-poster.webp" playsinline>
+    <source src="assets/play/my-film.mp4" type="video/mp4">
+  </video>
+  <div class="play-meta"><p class="play-tag mono">Video · 2026</p><h3>Film title</h3><p>One-line blurb.</p></div>
+</article>
+```
+**Embedded video (YouTube etc., lazy)**:
+```html
+<article class="play-item" data-kind="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Film title" loading="lazy" allowfullscreen></iframe>
+  <div class="play-meta"><p class="play-tag mono">Video · 2026</p><h3>Film title</h3><p>One-line blurb.</p></div>
+</article>
+```
+Keep large media out of git (use an embed or a release asset); no media is checked in. Name alternatives considered: Studio, Hangar (Gundam nod), Side Quests, Interludes.
 
-Rejected candidates (kept out of the repo): hero triptych; trajectory-deflection (thin strip) and ring/noise variants; slice with irregular semantic regions; thin timeline strips for TRACE; a card-chain for TRACE; filmstrip with locator needle; the first agent loop strip and the frozen-gate diagram; the noisy-cloud graph; the hub-with-ledger Baton variant. Earlier rounds' colour-block posters are only in git history.
-
-Image credits: generated with OpenAI image generation via the local Codex CLI (`codex exec` with the image generation tool), prompts as above; the CSI Attack screenshot is of the author's own live site. No stock images or photos besides the portrait.
+## Illustrations
+All art in `assets/art/` is **raw OpenAI image generation output via the local Codex CLI** (crop/resize/webp only; no drawing, compositing or recolouring). Style: soft gouache / Japanese-woodblock-inspired washes in indigo and cobalt on warm paper, vermilion as the single accent (chosen over a risograph two-ink look after generating two candidates of each for the hero). Full table of prompts, Codex session ids, crop/resize and SHA-256 of every original: `assets/art/PROVENANCE.md`. The unmodified PNGs are not deployed; they stay in `~/.codex/generated_images/`. Real paper-figure thumbnails in Publications are the papers' own figures. Images load only in Expanded.
 
 ## Motion
 Subtle scroll-reveal, hover transitions, marquee; all disabled / static under `prefers-reduced-motion`.

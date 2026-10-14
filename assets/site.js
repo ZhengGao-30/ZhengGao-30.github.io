@@ -1,28 +1,61 @@
 (function () {
   var root = document.documentElement;
-  var btns = document.querySelectorAll("[data-view-btn]");
-  var seg = document.querySelectorAll(".seg [data-view-btn]");
   var status = document.getElementById("view-status");
+  var main = document.getElementById("top-content");
+  var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Playground name: rename here, in the [data-play-name] elements of index.html (heading + nav). */
+  var PLAY_NAME = "Playground";
+  document.querySelectorAll("[data-play-name]").forEach(function (el) { el.textContent = PLAY_NAME; });
+
+  /* ---------- Minimal / Expanded ---------- */
+  var seg = document.querySelectorAll(".seg [data-view-btn]");
   function setView(v, announce) {
     root.setAttribute("data-view", v);
     seg.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view-btn") === v)); });
     try { localStorage.setItem("zg-view", v); } catch (e) {}
     if (announce && status) status.textContent = (v === "minimal" ? "Minimal" : "Expanded") + " view";
   }
-  btns.forEach(function (b) {
-    b.addEventListener("click", function () { setView(b.getAttribute("data-view-btn"), true); });
+  function goto(id) {
+    var el = id && document.getElementById(id);
+    if (!el) { window.scrollTo(0, 0); return; }
+    el.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+    if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+    el.focus({ preventScroll: true });
+  }
+  seg.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-view-btn");
+      if (root.getAttribute("data-view") === v) return;
+      setView(v, true);
+      window.scrollTo(0, 0);
+      if (main) main.focus({ preventScroll: true });
+    });
   });
   setView(root.getAttribute("data-view") || "minimal", false);
 
-  // a link to something hidden in Minimal switches to Expanded
+  document.querySelectorAll("[data-goto]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var id = a.getAttribute("href").slice(1);
+      setView("expanded", true);
+      requestAnimationFrame(function () { goto(id); });
+    });
+  });
   window.addEventListener("hashchange", function () {
-    var el = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    var id = location.hash.slice(1);
+    var el = id && document.getElementById(id);
     if (el && el.offsetParent === null && root.getAttribute("data-view") === "minimal") {
-      setView("expanded", true); el.scrollIntoView();
+      setView("expanded", true);
+      requestAnimationFrame(function () { goto(id); });
     }
   });
+  if (location.hash.length > 1 && root.getAttribute("data-view") === "expanded") {
+    var h0 = location.hash.slice(1);
+    window.addEventListener("load", function () { goto(h0); });
+  }
 
+  /* ---------- theme ---------- */
   var tbtn = document.querySelector(".theme-btn");
   if (tbtn) tbtn.addEventListener("click", function () {
     var cur = root.getAttribute("data-theme") ||
@@ -32,15 +65,14 @@
     try { localStorage.setItem("zg-theme", next); } catch (e) {}
   });
 
+  /* ---------- scroll reveal + active nav (Expanded) ---------- */
   var links = {};
   document.querySelectorAll(".site-nav a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
-
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { rootMargin: "0px 0px -6% 0px" });
     document.querySelectorAll(".rv").forEach(function (el) { io.observe(el); });
-
     var so = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         var a = links[e.target.id];
@@ -49,14 +81,13 @@
         a.classList.add("is-active");
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll("main section[id]").forEach(function (s) { so.observe(s); });
+    document.querySelectorAll(".view-expanded section[id]").forEach(function (s) { so.observe(s); });
   } else {
     document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); });
   }
 
-  // project cards: cursor spotlight + gentle tilt (fine pointers only, not with reduced motion)
+  /* ---------- project cards: spotlight + gentle tilt (fine pointers, no reduced motion) ---------- */
   var fine = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
-  var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (fine) document.querySelectorAll("[data-tilt]").forEach(function (card) {
     var glow = card.querySelector(".p-media");
     card.addEventListener("pointermove", function (e) {
@@ -70,4 +101,24 @@
     });
     card.addEventListener("pointerleave", function () { card.style.transform = ""; });
   });
+
+  /* ---------- Playground: hide "coming soon" tiles once real items exist; filter chips ---------- */
+  (function () {
+    var grid = document.querySelector(".play-grid");
+    if (!grid) return;
+    var real = grid.querySelectorAll(".play-item");
+    var kinds = {};
+    real.forEach(function (it) { kinds[it.getAttribute("data-kind")] = true; });
+    grid.querySelectorAll(".play-soon").forEach(function (t) { if (kinds[t.getAttribute("data-kind")]) t.hidden = true; });
+    var bar = document.querySelector(".play-filter");
+    if (!bar || !(kinds.game && kinds.video)) return;
+    bar.hidden = false;
+    bar.querySelectorAll("button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = b.getAttribute("data-filter");
+        bar.querySelectorAll("button").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+        real.forEach(function (it) { it.hidden = !(f === "all" || it.getAttribute("data-kind") === f); });
+      });
+    });
+  })();
 })();
