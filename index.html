@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="a">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,12 +38,14 @@
   <meta name="twitter:description" content="M.Phil. researcher at UNSW Sydney working on the security and provenance of AI-generated content: watermarking for diffusion models and LLM agents, and proactive deepfake defense.">
   <meta name="twitter:image" content="https://zhenggao-30.github.io/images/profile.jpg">
 
-  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0A1330" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8F6EE" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111725" media="(prefers-color-scheme: dark)">
   <script>
     /* Applies the saved view/theme before first paint. Without JS the page simply shows everything. */
     (function () {
       var d = document.documentElement; d.classList.add("js"); var v = "minimal";
+      /* dev-only preview: ?palette=a|b|c (default a). Safe to delete this line together with the data-palette tokens of b and c. */
+      var pm = /[?&]palette=([abc])(?:&|$)/.exec(location.search); d.setAttribute("data-palette", pm ? pm[1] : "a");
       try {
         v = localStorage.getItem("zg-view") === "expanded" ? "expanded" : "minimal";
         var t = localStorage.getItem("zg-theme");
@@ -474,7 +476,7 @@
           <h1 id="hero-h"><span class="visually-hidden">Zheng Gao asks: </span>Can we trust what a machine <em>made</em><span class="dot">?</span></h1>
         </div>
         <div class="hero-art">
-          <img src="assets/art/hero-panel.webp" width="1000" height="913" alt="Abstract composition of overlapping white, blue and navy panels with a single red disc, generated with GPT image generation" decoding="async" fetchpriority="high">
+          <img src="assets/art/hero.webp" width="1260" height="610" alt="Illustration of an invisible watermark: a calm generated landscape dissolves into diffusion noise, a faint ring pattern (the hidden watermark) emerges in the noise, and a small lens marks where the detector recovers it in red." decoding="async" fetchpriority="high">
         </div>
       </div>
       <p class="affil mono">School of Computer Science &amp; Engineering · UNSW Sydney</p>
@@ -515,12 +517,12 @@
           <div class="threads-wrap">
             <h3 class="threads-h mono">Active research threads</h3>
             <ol class="threads">
-              <li><span class="thread-n">01</span><div><h4 class="thread-t">Adversarial analysis of generative watermarking</h4><p class="thread-d">exposing structural vulnerabilities of semantic-aware and diffusion-noise watermarks through LLM-guided semantic manipulation and stochastic trajectory deflection.</p></div></li>
-              <li><span class="thread-n">02</span><div><h4 class="thread-t">Robust watermarking design</h4><p class="thread-d">semantic-latent embedding schemes for diffusion models that balance imperceptibility with resistance to removal and regeneration attacks.</p></div></li>
-              <li><span class="thread-n">03</span><div><h4 class="thread-t">Attribution and forensics for AI-generated content</h4><p class="thread-d">two-channel attribution watermarks for LLM-agent decision trajectories, tamper-localizing watermarks for coding-agent trajectories, visual provenance across generated and code-rendered media, and information-theoretic characterization of what watermark forensics can and cannot recover.</p></div></li>
-              <li><span class="thread-n">04</span><div><h4 class="thread-t">Proactive deepfake forensics</h4><p class="thread-d">layered audio-visual watermarking that supports both detection and segment-level tampering localization.</p></div></li>
-              <li><span class="thread-n">05</span><div><h4 class="thread-t">Reliability and privacy of LLM agents</h4><p class="thread-d">certifying that updated agents retain earlier capabilities, and privacy accounting for validation-retry wrappers.</p></div></li>
-              <li><span class="thread-n">06</span><div><h4 class="thread-t">Robust learning under deficient supervision</h4><p class="thread-d">large-language-model–augmented graph learning under noisy or incomplete supervision.</p></div></li>
+              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-attack.webp" width="900" height="600" alt="A watermark drawn as concentric rings over a calm landscape: half of the rings have been cleanly rewritten in red while the picture underneath stays coherent, the idea behind semantic and trajectory-deflection attacks on watermarks." loading="lazy" decoding="async"><span class="thread-n">01</span></figure><h4 class="thread-t">Adversarial analysis of generative watermarking</h4><p class="thread-d">exposing structural vulnerabilities of semantic-aware and diffusion-noise watermarks through LLM-guided semantic manipulation and stochastic trajectory deflection.</p></li>
+              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-slice.webp" width="900" height="600" alt="An image split into a grid of compartments, each carrying a small dot mark; after the image is regenerated and smudged the marks inside the compartments are still intact." loading="lazy" decoding="async"><span class="thread-n">02</span></figure><h4 class="thread-t">Robust watermarking design</h4><p class="thread-d">semantic-latent embedding schemes for diffusion models that balance imperceptibility with resistance to removal and regeneration attacks.</p></li>
+              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-trace.webp" width="900" height="600" alt="An agent's action trajectory as nodes along two interleaved channels; some steps are deleted or rewritten, yet a faint seal pattern on the remaining nodes still identifies the owner." loading="lazy" decoding="async"><span class="thread-n">03</span></figure><h4 class="thread-t">Attribution and forensics for AI-generated content</h4><p class="thread-d">two-channel attribution watermarks for LLM-agent decision trajectories, tamper-localizing watermarks for coding-agent trajectories, visual provenance across generated and code-rendered media, and information-theoretic characterization of what watermark forensics can and cannot recover.</p></li>
+              <li class="thread rv" style="--i:0"><figure class="thread-fig"><img src="assets/art/thread-lava.webp" width="900" height="600" alt="A strip of video frames above an audio waveform with one tampered segment bracketed across both tracks, showing detection and localization over audio and video." loading="lazy" decoding="async"><span class="thread-n">04</span></figure><h4 class="thread-t">Proactive deepfake forensics</h4><p class="thread-d">layered audio-visual watermarking that supports both detection and segment-level tampering localization.</p></li>
+              <li class="thread rv" style="--i:1"><figure class="thread-fig"><img src="assets/art/thread-agent.webp" width="900" height="600" alt="A retry loop passing through a gate, a bounded privacy-envelope curve under a ceiling line, and a stack of held-out history cards being checked." loading="lazy" decoding="async"><span class="thread-n">05</span></figure><h4 class="thread-t">Reliability and privacy of LLM agents</h4><p class="thread-d">certifying that updated agents retain earlier capabilities, and privacy accounting for validation-retry wrappers.</p></li>
+              <li class="thread rv" style="--i:2"><figure class="thread-fig"><img src="assets/art/thread-graph.webp" width="900" height="600" alt="A graph with missing edges and noisy nodes being repaired by dotted retrieval arcs from a small external source." loading="lazy" decoding="async"><span class="thread-n">06</span></figure><h4 class="thread-t">Robust learning under deficient supervision</h4><p class="thread-d">large-language-model–augmented graph learning under noisy or incomplete supervision.</p></li>
             </ol>
           </div>
         </div>
@@ -863,11 +865,7 @@
     </section>
 
     <!-- ======================= Projects ======================= -->
-    <figure class="banner">
-      <img src="assets/art/signal-banner.webp" width="1600" height="500" loading="lazy" decoding="async" alt="Abstract artwork: blue grain on the left resolving into concentric blue rings with one red ring, like a signal emerging from noise; generated with GPT image generation">
-    </figure>
-
-    <section class="sec on-blue" id="projects" aria-labelledby="projects-h">
+    <section class="sec on-tint" id="projects" aria-labelledby="projects-h">
       <div class="sec-grid">
         <div class="sec-head"><span class="mono"><b>04</b> / Units</span><h2 id="projects-h">Projects</h2></div>
         <div>
@@ -875,7 +873,7 @@
           <div class="projects">
         <article class="proj proj--lead rv" style="--i:0" data-tilt>
           <div class="p-media">
-            <img src="assets/art/cover-baton.webp" width="1200" height="800" alt="Abstract artwork: parallel blue and navy lanes with a red disc passing between two white nodes, like a baton handed over; generated with GPT image generation" loading="lazy" decoding="async">
+            <img src="assets/art/cover-baton.webp" width="1200" height="800" alt="Diagram of a hub-and-spoke relay: one central window frame hands task tokens along thin lines to four worker nodes, with a ledger of stacked records below" loading="lazy" decoding="async">
             <span class="p-glow" aria-hidden="true"></span>
           </div>
           <div class="p-body">
@@ -893,7 +891,7 @@
         </article>
         <article class="proj rv" style="--i:1" data-tilt>
           <div class="p-media">
-            <img src="assets/art/cover-csi.webp" width="1200" height="800" alt="Abstract artwork: a grid of white, blue and navy geometric tiles in which a few tiles are shifted and recoloured red; generated with GPT image generation" loading="lazy" decoding="async">
+            <img src="assets/art/cover-csi.webp" width="1200" height="800" alt="A watermark drawn as concentric rings over a calm landscape, half of the rings rewritten in red while the picture stays coherent, the idea behind the CSI attack" loading="lazy" decoding="async">
           <div class="mock" aria-hidden="true"><div class="mock-bar"><i></i><i></i><i></i><span>csi-attack.evanyifanyang2026.workers.dev</span></div><img src="assets/art/shot-csi.webp" width="960" height="600" alt="" loading="lazy" decoding="async"></div>
             <span class="p-glow" aria-hidden="true"></span>
           </div>
@@ -912,7 +910,7 @@
         </article>
         <article class="proj rv" style="--i:2" data-tilt>
           <div class="p-media">
-            <img src="assets/art/cover-trace.webp" width="1200" height="800" alt="Abstract artwork: two rows of blue and navy discs with a gap of empty outlines, while a continuous red ribbon threads through the gap; generated with GPT image generation" loading="lazy" decoding="async">
+            <img src="assets/art/thread-trace.webp" width="1200" height="800" alt="An agent trajectory as nodes on two interleaved channels with deleted and tampered steps, where a seal pattern on the remaining nodes still identifies the owner" loading="lazy" decoding="async">
             <span class="p-glow" aria-hidden="true"></span>
           </div>
           <div class="p-body">
