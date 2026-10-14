@@ -88,7 +88,7 @@ Standalone page. Rename in one place: `PLAY_NAME` at the top of `assets/site.js`
   </div>
 </article>
 ```
-**How to add a video (self-hosted, small files only)**:
+**How to add a video (self-hosted, small files only; real example = the two videos in `playground.html`, files in `assets/video/<slug>.mp4` + `<slug>-poster.webp`, H.264 + AAC, `+faststart`, poster = a real frame as webp)**:
 ```html
 <article class="play-item" data-kind="video">
   <video controls preload="none" poster="assets/play/my-film-poster.webp" playsinline>
@@ -117,3 +117,6 @@ All pages share `assets/site.css`; the old `style.css` was removed in round 6.
 
 ## Measured (round 6, Chromium)
 Home Minimal 2,194 px @1440 / 2,687 px @390, 0 images (~307 KB incl. fonts). Home Expanded 4,472 px @1440 / 7,609 px @390 (was 14,479 px), 11 images lazy-loaded (~1.4 MB). publications.html 5,449 px @1440, 0 images, ~258 KB. Reference (xiaoyulics.com): Minimal ≈1,900 px, Expanded ≈3,700 px.
+
+## Videos (round 7)
+`playground.html` holds two self-hosted videos made together with Xiaoyu Li (credits block + per-card `.play-credit` line: Claude – production assistance, Astra – Blender modelling for camera language, Seedance 2.5 – rendering). Both were already web-ready (H.264 High, yuv420p, AAC, moov atom first, 1280×720) so they were copied unchanged; the originals' sha256 are in `assets/video/PROVENANCE.md`. Click-to-play only (`preload="none"`), posters are real frames. Check `.gitattributes` marks `*.mp4`/`*.webp` as binary.

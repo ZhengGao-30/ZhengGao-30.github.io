@@ -694,7 +694,8 @@ html[data-view="minimal"] .site-header .wrap { max-width: calc(800px + var(--gut
 .play-soon .play-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
 .play-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .play-tags li { font: 500 11px var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--rule-strong); padding: 3px 8px; border-radius: 99px; }
-.play-item video, .play-item iframe { width: 100%; aspect-ratio: 16 / 9; display: block; border: 0; background: var(--navy); }
+.play-item video, .play-item iframe { width: 100%; height: auto; max-height: min(80vh, 760px); display: block; border: 0; background: var(--navy); object-fit: contain; }
+.play-item iframe { aspect-ratio: 16 / 9; }
 .play-item[hidden], .play-soon[hidden] { display: none; }
 
 /* ---- view switch transition ---- */
@@ -860,3 +861,16 @@ html[data-view="minimal"] .site-header .wrap { max-width: calc(800px + var(--gut
   .site-header.sub .wrap { padding-top: 16px; }
   .site-header.sub .site-nav { gap: 4px 16px; }
 }
+
+/* ---- Playground: videos intro + credits (round 7) ---- */
+.vid-intro { margin: 4px 0 26px; padding-bottom: 22px; border-bottom: 1px solid var(--rule); }
+.vid-intro h2 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--ink); line-height: 1.2; }
+.vid-lead { margin-top: 8px; font-size: 17px; max-width: 62ch; color: var(--ink-2); }
+.credits { margin-top: 16px; max-width: 62ch; border-top: 1px solid var(--rule); }
+.credits > div { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 4px 18px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.5; }
+.credits dt { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--blue); padding-top: 3px; }
+.credits dd { margin: 0; color: var(--ink-2); }
+.play-credit { margin-top: 10px; font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .credits > div { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+/* no-JS safe: a "coming soon" tile never shows after a real item of the same kind */
+.play-item[data-kind="video"] ~ .play-soon[data-kind="video"], .play-item[data-kind="game"] ~ .play-soon[data-kind="game"] { display: none; }

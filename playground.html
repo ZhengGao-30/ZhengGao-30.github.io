@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Playground — Zheng Gao</title>
-  <meta name="description" content="Games, films and small experiments by Zheng Gao – coming soon.">
+  <meta name="description" content="Videos, games and small experiments by Zheng Gao.">
   <meta name="author" content="Zheng Gao">
   <link rel="canonical" href="https://zhenggao-30.github.io/playground.html">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zheng Gao">
   <meta property="og:title" content="Playground — Zheng Gao">
-  <meta property="og:description" content="Games, films and small experiments by Zheng Gao – coming soon.">
+  <meta property="og:description" content="Videos, games and small experiments by Zheng Gao.">
   <meta property="og:url" content="https://zhenggao-30.github.io/playground.html">
   <meta property="og:image" content="https://zhenggao-30.github.io/images/profile.jpg">
   <meta name="theme-color" content="#F8F6EE" media="(prefers-color-scheme: light)">
@@ -49,8 +49,20 @@
 <main id="main" class="wrap page" tabindex="-1">
   <header class="page-head play-head">
     <h1 data-play-name>Playground</h1>
-    <p class="page-sub">Games, films and small experiments – coming soon.</p>
+    <p class="page-sub">Games, films and small experiments.</p>
   </header>
+  <!-- CREDITS: the intro sentence, the list below and the per-card ".play-credit" lines are the only places
+       that name the pipeline. If a video was made differently, edit its own .play-credit line. -->
+  <section class="vid-intro" aria-labelledby="vid-h">
+    <h2 id="vid-h">Videos</h2>
+    <p class="vid-lead">Made together with <a href="https://xiaoyulics.com/" target="_blank" rel="noopener">Xiaoyu Li<span class="arr" aria-hidden="true"> ↗</span></a>. Claude helped with the production, Astra built the Blender models to show the camera language, and Seedance 2.5 rendered the final video.</p>
+    <dl class="credits">
+      <div><dt>Claude</dt><dd>Assisted with the production</dd></div>
+      <div><dt>Astra</dt><dd>Modelled the scenes in Blender to demonstrate the camera language</dd></div>
+      <div><dt>Seedance 2.5</dt><dd>Rendered the video</dd></div>
+    </dl>
+  </section>
+
   <div class="play-filter" role="group" aria-label="Filter playground items" hidden>
     <button type="button" data-filter="all" aria-pressed="true">All</button>
     <button type="button" data-filter="game" aria-pressed="false">Games</button>
@@ -59,6 +71,32 @@
   <!-- Add real items here, see DESIGN.md ("How to add a game / a video").
        A "coming soon" tile disappears as soon as a real .play-item of its kind exists. -->
   <div class="play-grid">
+    <article class="play-item" data-kind="video">
+      <video controls preload="none" playsinline width="1280" height="720" poster="assets/video/cafe-scene-01-poster.webp">
+        <source src="assets/video/cafe-scene-01.mp4" type="video/mp4">
+        <a href="assets/video/cafe-scene-01.mp4">Watch the video (MP4)</a>
+      </video>
+      <div class="play-meta">
+        <p class="play-tag mono">Video · Oct 2026</p>
+        <h3>Café conversation</h3>
+        <p>A short cinematic scene of two people talking at a table in a café.</p>
+        <ul class="play-tags"><li>Cinematic</li><li>Short scene</li></ul>
+        <p class="play-credit">With Xiaoyu Li · Claude · Astra · Seedance 2.5</p>
+      </div>
+    </article>
+    <article class="play-item" data-kind="video">
+      <video controls preload="none" playsinline width="1280" height="720" poster="assets/video/duel-trailer-02-poster.webp">
+        <source src="assets/video/duel-trailer-02.mp4" type="video/mp4">
+        <a href="assets/video/duel-trailer-02.mp4">Watch the video (MP4)</a>
+      </video>
+      <div class="play-meta">
+        <p class="play-tag mono">Video · Oct 2026</p>
+        <h3>Character select to duel</h3>
+        <p>A fighting-game style sequence: character select, a versus screen, then a duel in a night-time temple.</p>
+        <ul class="play-tags"><li>Game-style</li><li>Trailer</li></ul>
+        <p class="play-credit">With Xiaoyu Li · Claude · Astra · Seedance 2.5</p>
+      </div>
+    </article>
     <article class="play-soon" data-kind="game">
       <figure class="play-fig"><img src="assets/art/play-games.webp" width="1200" height="800" alt="A small paper-layered world, a tiny diorama with a glowing play marker, standing for the games I plan to share here." decoding="async" fetchpriority="high"></figure>
       <div class="play-meta"><p class="play-tag mono">Games · Coming soon</p><h2>Games</h2><p>Interactive worlds and little experiments I build for fun.</p></div>
