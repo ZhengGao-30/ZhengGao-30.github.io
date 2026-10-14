@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-labelledby="t d" class="unit">
+  <title id="t">Technical drawing of a stylised mobile-suit head</title>
+  <desc id="d">A line drawing of a white helmet with a yellow V-fin, blue visor and red chin mark, surrounded by construction circles and registration marks.</desc>
+  <g class="u-hair" fill="none" stroke-width="1">
+    <circle cx="200" cy="230" r="170" stroke-dasharray="2 5"/>
+    <circle cx="200" cy="230" r="128"/>
+    <path d="M200 30V430M30 230H370" stroke-dasharray="6 4"/>
+    <path d="M60 340H340" />
+  </g>
+  <g class="u-ink" fill="none" stroke-width="1.5">
+    <path d="M14 14h18M14 14v18M386 14h-18M386 14v18M14 446h18M14 446v-18M386 446h-18M386 446v-18"/>
+  </g>
+  <!-- V-fin -->
+  <path class="u-yellow u-ink" stroke-width="1.5" stroke-linejoin="round" d="M200 150 L124 62 L150 52 L200 110 L250 52 L276 62 Z"/>
+  <path class="u-ink" fill="none" stroke-width="1" d="M200 110 V150"/>
+  <!-- helmet -->
+  <path class="u-paper u-ink" stroke-width="1.8" stroke-linejoin="round" d="M112 196 C112 138 150 120 200 120 C250 120 288 138 288 196 L288 262 L262 304 L138 304 L112 262 Z"/>
+  <path class="u-ink" fill="none" stroke-width="1" d="M138 304 L150 262 H250 L262 304 M150 262 L112 262 M250 262 L288 262"/>
+  <!-- brow + visor -->
+  <path class="u-ink" fill="none" stroke-width="1" d="M126 178 C150 160 250 160 274 178"/>
+  <path class="u-blue u-ink" stroke-width="1.2" stroke-linejoin="round" d="M130 196 L190 202 L186 222 L134 216 Z"/>
+  <path class="u-blue u-ink" stroke-width="1.2" stroke-linejoin="round" d="M270 196 L210 202 L214 222 L266 216 Z"/>
+  <!-- chin vents -->
+  <path class="u-ink" fill="none" stroke-width="1" d="M176 274H224M180 283H220M184 292H216"/>
+  <!-- ear sensors -->
+  <path class="u-paper u-ink" stroke-width="1.5" d="M92 190 H112 V252 H92 Z"/>
+  <path class="u-paper u-ink" stroke-width="1.5" d="M308 190 H288 V252 H308 Z"/>
+  <path class="u-ink" fill="none" stroke-width="1" d="M96 204H108M96 214H108M96 224H108M304 204H292M304 214H292M304 224H292"/>
+  <!-- red chin mark -->
+  <rect class="u-red" x="188" y="296" width="24" height="5"/>
+  <!-- neck / shoulders -->
+  <path class="u-ink" fill="none" stroke-width="1.5" d="M168 304 V332 H232 V304"/>
+  <path class="u-ink" fill="none" stroke-width="1.5" stroke-linejoin="round" d="M96 372 L150 332 H250 L304 372"/>
+  <path class="u-blue" d="M96 372 L150 332 H170 L132 372 Z"/>
+  <path class="u-blue" d="M304 372 L250 332 H230 L268 372 Z"/>
+  <!-- dimension + labels -->
+  <g class="u-hair" fill="none" stroke-width="1">
+    <path d="M60 120V304M54 120h12M54 304h12"/>
+    <path d="M112 394H288M112 388v12M288 388v12"/>
+  </g>
+  <g class="u-label" font-size="9.5" letter-spacing="1.2">
+    <text x="48" y="216" transform="rotate(-90 48 216)" text-anchor="middle">H 184</text>
+    <text x="200" y="412" text-anchor="middle">W 176 — SENSOR HEAD</text>
+    <text x="14" y="454">FIG. 01</text>
+    <text x="386" y="454" text-anchor="end">WM—01 / RX</text>
+  </g>
+  <circle class="u-red" cx="200" cy="230" r="2.4"/>
+</svg>
