@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="a">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground — Zheng Gao</title>
+  <meta name="description" content="Games, films and small experiments by Zheng Gao – coming soon.">
+  <meta name="author" content="Zheng Gao">
+  <link rel="canonical" href="https://zhenggao-30.github.io/playground.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zheng Gao">
+  <meta property="og:title" content="Playground — Zheng Gao">
+  <meta property="og:description" content="Games, films and small experiments by Zheng Gao – coming soon.">
+  <meta property="og:url" content="https://zhenggao-30.github.io/playground.html">
+  <meta property="og:image" content="https://zhenggao-30.github.io/images/profile.jpg">
+  <meta name="theme-color" content="#F8F6EE" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111725" media="(prefers-color-scheme: dark)">
+  <script>
+    /* theme bootstrap (no flash). Dev-only preview: ?palette=a|b|c */
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      var pm = /[?&]palette=([abc])(?:&|$)/.exec(location.search); d.setAttribute("data-palette", pm ? pm[1] : "a");
+      try { var t = localStorage.getItem("zg-theme"); if (t === "light" || t === "dark") d.setAttribute("data-theme", t); } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/art/logomark-32.png">
+  <link rel="apple-touch-icon" href="assets/art/logomark.png">
+</head>
+<body class="play-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header sub">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Zheng Gao — home">Zheng Gao</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="news.html">News</a>
+      <a href="playground.html" aria-current="page" data-play-name>Playground</a>
+    </nav>
+    <div class="tools"><button class="theme-btn" type="button" aria-label="Toggle light / dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button></div>
+  </div>
+</header>
+
+<main id="main" class="wrap page" tabindex="-1">
+  <header class="page-head play-head">
+    <h1 data-play-name>Playground</h1>
+    <p class="page-sub">Games, films and small experiments – coming soon.</p>
+  </header>
+  <div class="play-filter" role="group" aria-label="Filter playground items" hidden>
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" data-filter="game" aria-pressed="false">Games</button>
+    <button type="button" data-filter="video" aria-pressed="false">Videos</button>
+  </div>
+  <!-- Add real items here, see DESIGN.md ("How to add a game / a video").
+       A "coming soon" tile disappears as soon as a real .play-item of its kind exists. -->
+  <div class="play-grid">
+    <article class="play-soon" data-kind="game">
+      <figure class="play-fig"><img src="assets/art/play-games.webp" width="1200" height="800" alt="A small paper-layered world, a tiny diorama with a glowing play marker, standing for the games I plan to share here." decoding="async" fetchpriority="high"></figure>
+      <div class="play-meta"><p class="play-tag mono">Games · Coming soon</p><h2>Games</h2><p>Interactive worlds and little experiments I build for fun.</p></div>
+    </article>
+    <article class="play-soon" data-kind="video">
+      <figure class="play-fig"><img src="assets/art/play-videos.webp" width="1200" height="800" alt="A film frame with a play triangle motif, standing for the short films and screen recordings I plan to share here." decoding="async" loading="lazy"></figure>
+      <div class="play-meta"><p class="play-tag mono">Videos · Coming soon</p><h2>Videos</h2><p>Short films and screen recordings of things I make.</p></div>
+    </article>
+  </div>
+  <p class="play-back"><a href="index.html">← Back to the homepage</a></p>
+</main>
+<footer class="site-footer sub">
+  <div class="wrap">
+    <p>© 2026 Zheng Gao · Last updated October 2026</p>
+    <p class="m-flinks"><a href="mailto:zheng.gao1@unsw.edu.au">Email</a> <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a> <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a> <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID</a> <a href="index.html">Home</a></p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

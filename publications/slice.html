@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="a">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +28,6 @@
   <meta property="og:title" content="SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking">
   <meta property="og:description" content="Watermarking the initial noise of diffusion models has emerged as a promising approach for image provenance, but content-independent noise patterns can be forged via inversion and …">
   <meta property="og:url" content="https://zhenggao-30.github.io/publications/slice.html">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2334558b'/><text x='50' y='68' font-size='48' font-family='Georgia,serif' fill='white' text-anchor='middle'>ZG</text></svg>">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,12 +79,40 @@
   }
 }
   </script>
+
+  <meta name="theme-color" content="#F8F6EE" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111725" media="(prefers-color-scheme: dark)">
+  <script>
+    /* theme bootstrap (no flash). Dev-only preview: ?palette=a|b|c */
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      var pm = /[?&]palette=([abc])(?:&|$)/.exec(location.search); d.setAttribute("data-palette", pm ? pm[1] : "a");
+      try { var t = localStorage.getItem("zg-theme"); if (t === "light" || t === "dark") d.setAttribute("data-theme", t); } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/art/logomark-32.png">
+  <link rel="apple-touch-icon" href="../assets/art/logomark.png">
 </head>
 <body>
-
-<div class="paper-page">
-  <p class="paper-back"><a href="../index.html">&larr; Zheng Gao</a></p>
-
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header sub">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Zheng Gao — home">Zheng Gao</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../publications.html" aria-current="page">Publications</a>
+      <a href="../news.html">News</a>
+      <a href="../playground.html" data-play-name>Playground</a>
+    </nav>
+    <div class="tools"><button class="theme-btn" type="button" aria-label="Toggle light / dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button></div>
+  </div>
+</header>
+<main id="main" class="wrap paper-page" tabindex="-1">
+  <p class="paper-back"><a href="../publications.html">← All publications</a></p>
   <article>
     <span class="badge badge-pub">BMVC 2026 Oral</span>
     <h1 class="paper-title">SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking</h1>
@@ -113,11 +135,13 @@
   year          = {2026},
 }</code></pre>
   </article>
-
-  <footer>
-    <p>&copy; 2026 Zheng Gao &middot; <a href="../index.html">Home</a></p>
-  </footer>
-</div>
-
+</main>
+<footer class="site-footer sub">
+  <div class="wrap">
+    <p>© 2026 Zheng Gao · Last updated October 2026</p>
+    <p class="m-flinks"><a href="mailto:zheng.gao1@unsw.edu.au">Email</a> <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a> <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a> <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID</a> <a href="../index.html">Home</a></p>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

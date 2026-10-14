@@ -49,18 +49,31 @@ All text pairs ≥ 4.5:1 in all three palettes (lowest: C light, 4.97).
 ## Type
 Instrument Serif (display), Inter (body 17px/1.65), JetBrains Mono (spec-sheet labels). System fallbacks.
 
-## Minimal / Expanded (round 5)
-Modelled on xiaoyulics.com (reference measured: Minimal ≈1,900 px tall, zero images, Source Serif 4 + Inter). The two views are **separate DOM blocks** (`#view-minimal`, `#view-expanded`) switched by `data-view` on `<html>` (default Minimal, persisted in `localStorage` `zg-view`; `#hash` links to Expanded content switch automatically; no-JS shows Expanded in full).
-- **Minimal** = text only, **zero images** (nothing in it requests an image; fonts + css + js only): name + `Minimal | Expanded` text switch + theme toggle; hero question (Source Serif 4, ~40–50 px) + Mark / Break / Detect columns; News (3 ruled rows); Selected recent work (6 titles, one sentence each, first item with a link row, tiny muted venue tags); "All publications →"; About me (collapsible paragraph); footer. 800 px measure, hairline rules, palette A tokens.
-- **Expanded** = the unfolded page: Hello / Academic bio with photo, 01 Research (question + hero illustration, Mark/Break/Detect expanded, six illustrated research threads), 02 News, 03 Publications (20), 04 Projects (case-study cards), 05 Education & Experience, 06 Playground, 07 Contact. The anchor nav appears only here.
-- Switching: gentle fade-in (off with reduced motion), `aria-pressed` on the switch, live-region announcement, focus moves to `<main>`.
-- Theme toggle (`zg-theme`), default follows `prefers-color-scheme`. Projects cards: marquee of the stack, lead card + two cards, `<details>` for CV bullets, cursor spotlight + subtle tilt on fine pointers.
+## Site map (round 6)
+```
+index.html            Minimal (text only, News + selected work) / Expanded (slim: bio, research, selected publications, projects, experience, contact)
+publications.html     full archive: Accepted (Journal / Conference / Workshop) then Preprints & under review; search, topic chips, Show summaries, live count
+news.html             all 17 news items (the 3 latest also sit in Minimal)
+playground.html       games and videos (empty state "coming soon", filter + templates ready)
+publications/*.html   per-paper landing pages (Google Scholar citation_* tags), restyled with the shared CSS/header/footer
+```
+Shared: `assets/site.css` (tokens + all components), `assets/site.js` (view switch, theme, archive filter, Playground logic). Sub-page header: name (home) · Home · Publications · News · Playground + theme toggle.
 
-## Playground (Expanded, section 06)
-Rename in one place: `PLAY_NAME` at the top of `assets/site.js` (it fills every `[data-play-name]` element: the nav link and the section heading). The mono label `06 / Play` and the subtitle line are plain HTML in `index.html` (`#play`).
-Behaviour: two "coming soon" tiles (`.play-soon`, kinds `game` / `video`). As soon as a real `.play-item` of a kind exists, the tile of that kind disappears; when both kinds exist the `All · Games · Videos` filter appears.
+## Minimal / Expanded (home)
+Modelled on xiaoyulics.com. Two DOM blocks (`#view-minimal`, `#view-expanded`) switched by `data-view` on `<html>` (default Minimal, persisted in `localStorage` `zg-view`; `#hash` links to Expanded content switch automatically; no-JS shows Expanded in full).
+- **Minimal**: text only, **zero images**. Name + switch, hero question + Mark/Break/Detect, News (3 rows, "All news →" news.html), Selected recent work (6), "All publications (20) →", About me (collapsible), footer links (Email · Scholar · GitHub · ORCID · Publications · Playground).
+- **Expanded** (slim, ~4,500 px at 1440): Hello + short bio; 01 Research (one heading, hero art, six research threads as a 3×2 tile grid with one line each; full CV wording is in each tile's `title` attribute); 02 Selected publications (6 compact rows + "All publications (20)" + Scholar); 03 Projects (three compact cards with `<details>`); 04 Education & Experience (tight rows, bullets in `<details>`, GPA/coursework one muted line); 05 Contact. No News and no Playground section any more (they have their own pages); nav: Research · Publications · Projects · Experience · Contact · Playground.
 
-**How to add a game** — paste inside `<div class="play-grid">` in `index.html`:
+## Publications archive scheme
+Sections: **Accepted** (Journal articles 1 · Conference papers 6 · Workshop papers 3) and **Preprints & under review** (10, includes IRIS which is not in the CV). Newest first inside each group. Topic tags (assigned from titles/CV bullets; edit in `data-topics` and the `.a-tags` list): Watermarking, Attacks, Deepfake detection, LLM agents, Privacy, Graph learning, NAS / efficiency, Learning theory, Vision, Security. Search matches title, authors and venue; chips are single-select; "Show summaries" reveals the CV-derived summary lines; without JS everything (incl. summaries) is visible and the controls are hidden.
+
+**How to add a paper**: copy an `<article class="a-item" id="…" data-topics="A|B" data-search="lowercase title authors venue">` block into the right group of `publications.html`, update the counts in the page head (`#a-total`, the section `.a-n` numbers, `#a-total data-total`) and, if it is a selected work, add a row to the Minimal and Expanded lists in `index.html`.
+**How to add a news item**: add an `<li><span class="m-date">Month YYYY</span><span>text</span></li>` at the top of `news.html` (and, if it is among the three latest, in the Minimal News list of `index.html`).
+
+## Playground (`playground.html`)
+Standalone page. Rename in one place: `PLAY_NAME` at the top of `assets/site.js` (fills every `[data-play-name]` element: nav links, footer link, page heading; the `<title>` is plain HTML). Two "coming soon" tiles (`.play-soon`, kinds `game` / `video`); as soon as a real `.play-item` of a kind exists its tile disappears, and when both kinds exist the `All · Games · Videos` filter appears.
+
+**How to add a game** — paste inside `<div class="play-grid">` in `playground.html`:
 ```html
 <article class="play-item" data-kind="game">
   <a class="play-poster" href="https://example.com/my-game/" target="_blank" rel="noopener">
@@ -100,4 +113,7 @@ All art in `assets/art/` is **raw OpenAI image generation output via the local C
 Subtle scroll-reveal, hover transitions, marquee; all disabled / static under `prefers-reduced-motion`.
 
 ## Notes
-`style.css` is kept because `publications/*.html` still use it.
+All pages share `assets/site.css`; the old `style.css` was removed in round 6.
+
+## Measured (round 6, Chromium)
+Home Minimal 2,194 px @1440 / 2,687 px @390, 0 images (~307 KB incl. fonts). Home Expanded 4,472 px @1440 / 7,609 px @390 (was 14,479 px), 11 images lazy-loaded (~1.4 MB). publications.html 5,449 px @1440, 0 images, ~258 KB. Reference (xiaoyulics.com): Minimal ≈1,900 px, Expanded ≈3,700 px.

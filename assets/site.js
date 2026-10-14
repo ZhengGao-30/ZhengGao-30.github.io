@@ -32,7 +32,8 @@
       if (main) main.focus({ preventScroll: true });
     });
   });
-  setView(root.getAttribute("data-view") || "minimal", false);
+  var hasViews = !!document.getElementById("view-minimal");
+  if (hasViews) setView(root.getAttribute("data-view") || "minimal", false);
 
   document.querySelectorAll("[data-goto]").forEach(function (a) {
     a.addEventListener("click", function (e) {
@@ -120,5 +121,40 @@
         real.forEach(function (it) { it.hidden = !(f === "all" || it.getAttribute("data-kind") === f); });
       });
     });
+  })();
+
+  /* ---------- Publications archive: search, topic chips, summaries, live count ---------- */
+  (function () {
+    var bar = document.getElementById("a-controls");
+    if (!bar) return;
+    bar.hidden = false;
+    var items = [].slice.call(document.querySelectorAll(".a-item"));
+    var q = document.getElementById("a-q"), sum = document.getElementById("a-sum");
+    var count = document.getElementById("a-count"), empty = document.getElementById("a-empty");
+    var chips = [].slice.call(bar.querySelectorAll("[data-topic]"));
+    var total = items.length, topic = "";
+    function apply() {
+      var term = q.value.trim().toLowerCase(), n = 0;
+      items.forEach(function (it) {
+        var ok = (!topic || it.getAttribute("data-topics").split("|").indexOf(topic) > -1) &&
+                 (!term || it.getAttribute("data-search").indexOf(term) > -1);
+        it.hidden = !ok; if (ok) n++;
+      });
+      [].forEach.call(document.querySelectorAll("[data-group]"), function (g) { g.hidden = !g.querySelector(".a-item:not([hidden])"); });
+      [].forEach.call(document.querySelectorAll("[data-section]"), function (g) { g.hidden = !g.querySelector(".a-item:not([hidden])"); });
+      count.textContent = (n === total ? total + " publications" : n + " of " + total + " publications");
+      empty.hidden = n !== 0;
+    }
+    q.addEventListener("input", apply);
+    chips.forEach(function (c) {
+      c.addEventListener("click", function () {
+        var t = c.getAttribute("data-topic");
+        topic = topic === t ? "" : t;
+        chips.forEach(function (o) { o.setAttribute("aria-pressed", String(o.getAttribute("data-topic") === topic)); });
+        apply();
+      });
+    });
+    sum.addEventListener("change", function () { root.classList.toggle("show-sum", sum.checked); });
+    apply();
   })();
 })();

@@ -4,29 +4,35 @@ Personal academic homepage of Zheng Gao — plain static HTML + CSS, no build st
 
 ## Structure
 
-- `index.html` — homepage (bio, publications, education)
+- `index.html` — homepage with a Minimal (text only) and an Expanded view
+- `publications.html` — full publications archive (search, topic chips, summaries)
+- `news.html` — all news items
+- `playground.html` — games and videos (coming soon)
 - `publications/<slug>.html` — one landing page per paper, carrying the Google
   Scholar `citation_*` tags
 - `papers/<slug>.pdf` — self-hosted full texts (author copies from arXiv)
-- `style.css` — styling
-- `images/papers/` — paper teaser thumbnails
-- `robots.txt` — lets every crawler in; points to the sitemap
-- `sitemap.xml` — the URL list submitted to Google Search Console
-- `googleaf77cc177f277e58.html` — Google Search Console ownership proof; do not delete
+- `assets/site.css`, `assets/site.js` — shared styling and behaviour
+- `assets/art/` — illustrations generated with OpenAI image generation (see `PROVENANCE.md`)
+- `images/` — portrait and paper thumbnails
+- `robots.txt`, `sitemap.xml`, `googleaf77cc177f277e58.html` (Search Console proof; do not delete)
+
+See `DESIGN.md` for the site map, palette and the "how to add …" recipes
+(paper, news item, game, video).
 
 ## Editing
 
-Everything is edited directly in `index.html`. To add a publication, copy one of
-the `<div class="pub">…</div>` blocks in the Publications section and fill in the
-title, authors, venue, and (optionally) a thumbnail under `images/papers/`.
-
-For a new paper, also:
-
-1. copy an existing `publications/<slug>.html` and update its `citation_*` tags,
-   title, authors, venue, abstract, and BibTeX;
-2. drop the PDF at `papers/<slug>.pdf` and point `citation_pdf_url` at it;
-3. link the title in `index.html` to `publications/<slug>.html`;
-4. add the page to `sitemap.xml` and to the `@graph` array in `index.html`.
+- **New paper**: copy an `<article class="a-item">` in `publications.html` (set
+  `data-topics` and `data-search`), add it to the right section, update the count
+  numbers in the page head, and, if it is a selected work, to `index.html`
+  (Minimal and Expanded lists).
+- **New news item**: add an `<li>` to `news.html`; for the three latest also
+  update the Minimal News list in `index.html`.
+- Per-paper landing page, PDF, sitemap and `@graph` steps as before:
+  1. copy an existing `publications/<slug>.html` and update its `citation_*` tags,
+     title, authors, venue, abstract, and BibTeX;
+  2. drop the PDF at `papers/<slug>.pdf` and point `citation_pdf_url` at it;
+  3. link the title from the archive to `publications/<slug>.html`;
+  4. add the page to `sitemap.xml` and to the `@graph` array in `index.html`.
 
 Titles and author lists should match the arXiv/publisher record exactly — Scholar
 uses them to merge this page with the record it already has.
@@ -83,7 +89,7 @@ Scholar's [inclusion guidelines](https://scholar.google.com/intl/en/scholar/incl
 - `citation_pdf_url` pointing at a freely readable PDF **on this domain**
   (Scholar generally will not follow a cross-site PDF link), which is why the
   full texts are mirrored into `papers/` rather than linked to arXiv;
-- every paper page linked from `index.html`, which acts as the browse interface
+- every paper page linked from `publications.html` (itself linked from `index.html`), which acts as the browse interface
   Scholar crawls.
 
 Three papers (`bip`, `gscnet`, `g-rxad`) have no self-hosted PDF yet, so they

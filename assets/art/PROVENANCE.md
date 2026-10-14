@@ -83,6 +83,10 @@ Each prompt was sent as: `Use your image generation tool to generate ONE image a
 
 > Style: a soft gouache and Japanese woodblock (ukiyo-e) inspired painting with delicate transparent washes, fine brush linework, bokashi gradients of indigo and cobalt, visible paper fibre and pigment granulation. Rich painterly scene, not a flat diagram. Palette strictly: warm paper ground #F8F6EE (the ENTIRE canvas background, edge to edge, no frame, no border, no vignette), ink navy #17223B, cobalt blue #2A4F96, a pale blue wash #CEE0F5, and soft vermilion red #D15E49 as the single focal accent. Scene: a tiny emblem: a single bold ring (a watermark) enclosed in a rounded square, in cobalt and ink navy with one small vermilion dot, simple, iconic and readable at 32 pixels, centred with generous margin on the paper ground. Calm, elegant, beautiful and clearly a piece of artwork, with generous negative space. ABSOLUTELY NO text, letters, numbers, signatures or logos anywhere. No robots, no cartoon characters, no recognisable real faces. Aspect ratio 1:1 square.
 
+## Currently unused
+
+`contact-banner.webp` (round 5 Contact banner) is no longer referenced by any page since the round 6 slim-down; kept with its provenance entry above.
+
 ## Rejected candidates
 
 hero_riso1 / hero_riso2 (risograph two-ink style: lake with pines; still life), hero_gou1 (gouache lake with pines and lens). Not shipped; kept only in the author's Codex history.
