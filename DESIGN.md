@@ -1,4 +1,4 @@
-# Design notes — redesign-gundam (round 2)
+# Design notes — redesign-gundam (round 3)
 
 Editorial minimalism after the density-toggle idea of xiaoyulics.com (typographic hierarchy, hairline rules, calm tone), now with the RX-78-2 colour identity actually on the page: clean white ground, structural Federation blue, bold signal red. Swiss/Bauhaus poster restraint. Static HTML + one CSS + one JS file, no build step. Nothing depicts a robot or character; yellow is not used.
 
@@ -24,10 +24,18 @@ Editorial minimalism after the density-toggle idea of xiaoyulics.com (typographi
 - Dark theme keeps white / blue / red; bands stay blue, ground is deep navy.
 
 ## Generated art (OpenAI image generation through the local Codex CLI, `assets/art/`)
-Prompts asked for abstract, no robots/characters/text, palette #FFFFFF/#F4F3EF/#1F4FA8/#0F1D44/#D5222F.
-- `hero-panel.webp` (1000×913, crop of a 3:2 generation): overlapping armour-plate panels with seams, one red disc.
-- `signal-banner.webp` (1600×500, crop): watermark signal resolving out of blue noise into concentric rings with one red ring.
-Both are decorative with descriptive alt text; the banner is lazy-loaded.
+Prompts asked for abstract, no robots/characters/text, palette #FFFFFF/#F4F3EF/#1B46A0/#0F1D44/#D5222F.
+- `hero-panel.webp` (1000×913): overlapping armour-plate panels with seams, one red disc.
+- `signal-banner.webp` (1600×500): watermark signal resolving out of blue noise into concentric rings with one red ring.
+- `cover-baton.webp`, `cover-csi.webp`, `cover-trace.webp` (1200×800, ≤30 KB each): relay lanes with a red disc handed between nodes; a tile grid with a few "shifted" red cells; two channels of discs with a gap bridged by a red thread.
+- `shot-csi.webp`: real screenshot of the CSI Attack live site, shown in a minimal browser-window mock. (The TRACE and Baton pages were not mocked: TRACE's page features a cartoon mascot, Baton's defaults to a Chinese terracotta theme.)
+All decorative with descriptive alt text; everything below the fold is lazy-loaded.
+
+## Components added in round 3
+- **Research threads** (About): six numbered threads; Minimal shows titles, Expanded adds the CV one-liners.
+- **Publications**: grouped by type (journal / conference / workshop / preprints) with `[J1]…[P9]` ids, venue + CORE badges, red Oral/Poster chips, equal-contribution notes, per-paper "Contribution" line (Expanded only). Minimal view shows six selected works plus a count line.
+- **Education & Experience**: Research experience and Education sub-lists with the CV bullets; Expanded view only (GPA / coursework live here).
+- **Projects** (case-study cards on the blue band): marquee of the tech stack, lead card (Baton) + two supporting cards, large red index numerals, generated cover per project, stack chips, ghost/solid link buttons with arrow micro-interactions, native `<details>` for the CV bullets, cursor spotlight and subtle 3D tilt (fine pointers only, disabled with reduced motion), clip-path image reveal with stagger. On touch / mobile: stacked, no tilt, nothing hover-only.
 
 ## Type
 Instrument Serif (display), Inter (body 17px/1.65), JetBrains Mono (spec-sheet labels). System fallbacks.

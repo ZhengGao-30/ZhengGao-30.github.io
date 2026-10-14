@@ -53,4 +53,21 @@
   } else {
     document.querySelectorAll(".rv").forEach(function (el) { el.classList.add("in"); });
   }
+
+  // project cards: cursor spotlight + gentle tilt (fine pointers only, not with reduced motion)
+  var fine = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (fine) document.querySelectorAll("[data-tilt]").forEach(function (card) {
+    var glow = card.querySelector(".p-media");
+    card.addEventListener("pointermove", function (e) {
+      var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      if (glow) {
+        var g = glow.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - g.left) + "px");
+        card.style.setProperty("--my", (e.clientY - g.top) + "px");
+      }
+      if (!calm) card.style.transform = "perspective(1100px) rotateX(" + ((0.5 - y) * 3.2).toFixed(2) + "deg) rotateY(" + ((x - 0.5) * 4.2).toFixed(2) + "deg) translateY(-3px)";
+    });
+    card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+  });
 })();
