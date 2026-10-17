@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="a">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling — Zheng Gao</title>
+  <meta name="description" content="Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling. WACV 2027.">
+  <link rel="canonical" href="https://zhenggao-30.github.io/publications/quantize-where-the-noise-hides.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- ===== Google Scholar (Highwire Press) citation tags =====
+       One paper per page, as Scholar's inclusion guidelines require. -->
+  <meta name="citation_title" content="Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling">
+  <meta name="citation_author" content="Li, Xiaoyu">
+  <meta name="citation_author" content="Gao, Zheng">
+  <meta name="citation_author" content="Sha, Zhizhou">
+  <meta name="citation_author" content="Jiang, Jiaojiao">
+  <meta name="citation_publication_date" content="2027">
+  <meta name="citation_conference_title" content="IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)">
+  <meta name="citation_abstract_html_url" content="https://zhenggao-30.github.io/publications/quantize-where-the-noise-hides.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling">
+  <meta property="og:description" content="Post-training quantization of diffusion models is an active area of empirical research, with one robust but unexplained regularity: the early, high-noise reverse steps tolerate coarse precision, …">
+  <meta property="og:url" content="https://zhenggao-30.github.io/publications/quantize-where-the-noise-hides.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling",
+  "headline": "Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling",
+  "author": [
+    { "@type": "Person", "name": "Xiaoyu Li" },
+    { "@type": "Person", "name": "Zheng Gao" },
+    { "@type": "Person", "name": "Zhizhou Sha" },
+    { "@type": "Person", "name": "Jiaojiao Jiang" }
+  ],
+  "datePublished": "2027",
+  "url": "https://zhenggao-30.github.io/publications/quantize-where-the-noise-hides.html",
+  "creativeWorkStatus": "Accepted",
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2027"
+  },
+  "abstract": "Post-training quantization of diffusion models is an active area of empirical research, with one robust but unexplained regularity: the early, high-noise reverse steps tolerate coarse precision, while the late, low-noise steps do not. There is no theory of why this happens, and no principled way to spend a fixed bit budget across timesteps. We supply both, from a single principle: the reverse process has an error-correction capacity equal to its own injected noise. Treating the quantization applied at reverse step t as an added error of magnitude ε_t, we prove a self-correction theorem: the quantized and exact sampling laws stay within Wasserstein-2 distance Σ_t s_t ε_t (a non-asymptotic bound), where the sensitivity s_t is the factor by which an error at step t is amplified at the output. As long as a step's quantization stays below the noise the schedule already injects at that step, the error is absorbed; and because that noise shrinks toward the final step, the per-step tolerance tightens monotonically, which is exactly the early-coarse / late-fine rule. Given a total budget, the sampling error is then minimized by water-filling the bits across timesteps according to the sensitivities s_t, the classical rate-distortion allocation transplanted to diffusion, with uniform and full precision as its two limiting cases. The result is a principled mixed-precision schedule with a Wasserstein guarantee that is exact on closed-form targets. On a small trained model the schedule beats uniform precision and a PTQD-style SNR-matching heuristic at matched average bit-width; on a pretrained CIFAR-10 DDPM it is the most faithful allocation to the full-precision sampler at every budget and matches the best heuristic's FID within the theory's validity range, with the coarser-budget gap diagnosed as bias-dominated.",
+  "mainEntityOfPage": "https://zhenggao-30.github.io/publications/quantize-where-the-noise-hides.html"
+}
+  </script>
+
+  <meta name="theme-color" content="#F8F6EE" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111725" media="(prefers-color-scheme: dark)">
+  <script>
+    /* theme bootstrap (no flash). Dev-only preview: ?palette=a|b|c */
+    (function () {
+      var d = document.documentElement; d.classList.add("js");
+      var pm = /[?&]palette=([abc])(?:&|$)/.exec(location.search); d.setAttribute("data-palette", pm ? pm[1] : "a");
+      try { var t = localStorage.getItem("zg-theme"); if (t === "light" || t === "dark") d.setAttribute("data-theme", t); } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/art/logomark-32.png">
+  <link rel="apple-touch-icon" href="../assets/art/logomark.png">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header sub">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Zheng Gao — home">Zheng Gao</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../publications.html" aria-current="page">Publications</a>
+      <a href="../news.html">News</a>
+      <a href="../playground.html" data-play-name>Playground</a>
+    </nav>
+    <div class="tools"><button class="theme-btn" type="button" aria-label="Toggle light / dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button></div>
+  </div>
+</header>
+<main id="main" class="wrap paper-page" tabindex="-1">
+  <p class="paper-back"><a href="../publications.html">← All publications</a></p>
+  <article>
+    <span class="badge badge-pub">WACV 2027</span>
+    <h1 class="paper-title">Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling</h1>
+    <p class="pub-authors">Xiaoyu Li, <strong>Zheng Gao</strong>, Zhizhou Sha, Jiaojiao Jiang</p>
+    <p class="pub-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Algorithms Track, 2027</p>
+
+    <h2>Abstract</h2>
+    <p class="paper-abstract">Post-training quantization of diffusion models is an active area of empirical research, with one robust but unexplained regularity: the early, high-noise reverse steps tolerate coarse precision, while the late, low-noise steps do not. There is no theory of why this happens, and no principled way to spend a fixed bit budget across timesteps. We supply both, from a single principle: the reverse process has an error-correction capacity equal to its own injected noise. Treating the quantization applied at reverse step <em>t</em> as an added error of magnitude <em>ε<sub>t</sub></em>, we prove a self-correction theorem: the quantized and exact sampling laws stay within Wasserstein-2 distance ∑<sub><em>t</em></sub> <em>s<sub>t</sub>ε<sub>t</sub></em> (a non-asymptotic bound), where the sensitivity <em>s<sub>t</sub></em> is the factor by which an error at step <em>t</em> is amplified at the output. As long as a step's quantization stays below the noise the schedule already injects at that step, the error is absorbed; and because that noise shrinks toward the final step, the per-step tolerance tightens monotonically, which is exactly the early-coarse / late-fine rule. Given a total budget, the sampling error is then minimized by water-filling the bits across timesteps according to the sensitivities <em>s<sub>t</sub></em>, the classical rate-distortion allocation transplanted to diffusion, with uniform and full precision as its two limiting cases. The result is a principled mixed-precision schedule with a Wasserstein guarantee that is exact on closed-form targets. On a small trained model the schedule beats uniform precision and a PTQD-style SNR-matching heuristic at matched average bit-width; on a pretrained CIFAR-10 DDPM it is the most faithful allocation to the full-precision sampler at every budget and matches the best heuristic's FID within the theory's validity range, with the coarser-budget gap diagnosed as bias-dominated.</p>
+
+    <h2>BibTeX</h2>
+    <pre class="paper-bibtex"><code>@inproceedings{li2027quantizewherenoisehides,
+  title     = {Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling},
+  author    = {Li, Xiaoyu and Gao, Zheng and Sha, Zhizhou and Jiang, Jiaojiao},
+  booktitle = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  note      = {Algorithms Track},
+  year      = {2027},
+}</code></pre>
+  </article>
+</main>
+<footer class="site-footer sub">
+  <div class="wrap">
+    <p>© 2026 Zheng Gao · Last updated October 2026</p>
+    <p class="m-flinks"><a href="mailto:zheng.gao1@unsw.edu.au">Email</a> <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a> <a href="https://github.com/ZhengGao-30" target="_blank" rel="noopener">GitHub</a> <a href="https://orcid.org/0009-0004-0330-3493" target="_blank" rel="noopener">ORCID</a> <a href="../index.html">Home</a></p>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -49,8 +49,8 @@
 <main id="main" class="wrap page" tabindex="-1">
   <header class="page-head">
     <h1>Publications</h1>
-    <p class="page-sub" id="a-total" data-total="20">20 publications · 10 accepted · 10 preprints &amp; under review. Also on <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
-    <nav class="a-jump" aria-label="Jump to section"><a href="#accepted">Accepted <span class="a-n">10</span></a><a href="#preprints">Preprints &amp; under review <span class="a-n">10</span></a></nav>
+    <p class="page-sub" id="a-total" data-total="22">22 publications · 12 accepted · 10 preprints &amp; under review. Also on <a href="https://scholar.google.com/citations?user=j15KDM8AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <nav class="a-jump" aria-label="Jump to section"><a href="#accepted">Accepted <span class="a-n">12</span></a><a href="#preprints">Preprints &amp; under review <span class="a-n">10</span></a></nav>
   </header>
   <div class="a-controls" id="a-controls" hidden>
     <div class="a-search"><label class="visually-hidden" for="a-q">Search publications</label><input id="a-q" type="search" placeholder="Search papers by title, author, or venue" autocomplete="off"></div>
@@ -58,7 +58,7 @@
     <div class="a-row"><label class="a-toggle"><input type="checkbox" id="a-sum"> Show summaries</label><p class="a-count" id="a-count" role="status" aria-live="polite"></p></div>
   </div>
   <section id="accepted" class="a-section" aria-labelledby="acc-h" data-section>
-    <h2 class="a-h" id="acc-h">Accepted <span class="a-n">10</span></h2>
+    <h2 class="a-h" id="acc-h">Accepted <span class="a-n">12</span></h2>
       <div class="a-group" data-group>
         <h3 class="a-sub mono">Journal articles <span class="a-n">1</span></h3>
         <article class="a-item" id="j1" data-topics="Vision" data-search="gscnet: a transformer-based granular style control network for artifact-free image style transfer zheng gao, zhicheng bao, haoran fan, xiaoyu li, qipei nong, jiaojiao jiang journal of visual communication and image representation, vol. 120, art. 104895, 2026 jvcir 2026 ">
@@ -70,8 +70,22 @@
         </article>
       </div>
       <div class="a-group" data-group>
-        <h3 class="a-sub mono">Conference papers <span class="a-n">6</span></h3>
-        <article class="a-item" id="c6" data-topics="Vision|Learning theory" data-search="conformal calibration of co-visibility scores for connected view graphs zheng gao, junlin yu, wanrui pang, xiaoyu li, yang song, jiaojiao jiang proceedings of the international conference on digital image computing: techniques and applications (dicta ’26), 2026 dicta 2026 ">
+        <h3 class="a-sub mono">Conference papers <span class="a-n">8</span></h3>
+        <article class="a-item" id="c8" data-topics="NAS / efficiency|Learning theory" data-search="quantize where the noise hides: a self-correction theorem and water-filling bit allocation for diffusion sampling xiaoyu li, zheng gao, zhizhou sha, jiaojiao jiang proceedings of the ieee/cvf winter conference on applications of computer vision (wacv ’27), 2027 wacv 2027 ">
+          <p class="a-meta"><span class="pub-id">[C8]</span><span class="badge badge-pub">WACV 2027</span><span class="badge badge-core">CORE A</span></p>
+          <h4 class="a-title"><a href="publications/quantize-where-the-noise-hides.html">Quantize Where the Noise Hides: A Self-Correction Theorem and Water-Filling Bit Allocation for Diffusion Sampling</a></h4>
+          <p class="pub-authors">Xiaoyu Li, <strong>Zheng Gao</strong>, Zhizhou Sha, Jiaojiao Jiang</p>
+          <p class="pub-venue">Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV ’27), Algorithms Track, 2027</p>
+          <ul class="a-tags" aria-label="Topics"><li>NAS / efficiency</li><li>Learning theory</li></ul><p class="a-sum"><span class="mono">Summary</span> Proves a self-correction theorem for quantized diffusion sampling (Wasserstein-2 error bounded by the sensitivity-weighted sum of per-step quantization errors) and derives a water-filling mixed-precision bit allocation that explains the early-coarse / late-fine rule; on a pretrained CIFAR-10 DDPM it is the most faithful allocation to the full-precision sampler at every budget.</p>
+        </article>
+        <article class="a-item" id="c7" data-topics="NAS / efficiency" data-search="capacity meters that change sign: diagnosing zero-cost nas proxy transport across search spaces zhenyu liu, zheng gao, xiaoyu li, zhiyuan jiang, yang song, jiaojiao jiang proceedings of the ieee/cvf winter conference on applications of computer vision (wacv ’27), 2027 wacv 2027 ">
+          <p class="a-meta"><span class="pub-id">[C7]</span><span class="badge badge-pub">WACV 2027</span><span class="badge badge-core">CORE A</span></p>
+          <h4 class="a-title"><a href="publications/capacity-meters-that-change-sign.html">Capacity Meters That Change Sign: Diagnosing Zero-Cost NAS Proxy Transport Across Search Spaces</a></h4>
+          <p class="pub-authors">Zhenyu Liu, <strong>Zheng Gao</strong>, Xiaoyu Li, Zhiyuan Jiang, Yang Song, Jiaojiao Jiang</p>
+          <p class="pub-venue">Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV ’27), Evaluations and Datasets Track, 2027</p>
+          <ul class="a-tags" aria-label="Topics"><li>NAS / efficiency</li></ul><p class="a-sum"><span class="mono">Summary</span> Diagnoses why zero-cost NAS proxies can rank against accuracy when transported across search spaces: on NAS-Bench-201 a dominant capacity-associated factor explains 52.9%/49.4% of a 29-feature proxy zoo’s variation, and several raw proxies reverse sign (condition-number sum +0.88 → −0.77); two controlled search traps cost +5.40 and +1.97 points at K=10.</p>
+        </article>
+        <article class="a-item" id="c6"data-topics="Vision|Learning theory" data-search="conformal calibration of co-visibility scores for connected view graphs zheng gao, junlin yu, wanrui pang, xiaoyu li, yang song, jiaojiao jiang proceedings of the international conference on digital image computing: techniques and applications (dicta ’26), 2026 dicta 2026 ">
           <p class="a-meta"><span class="pub-id">[C6]</span><span class="badge badge-pub">DICTA 2026</span></p>
           <h4 class="a-title"><a href="publications/conformal-co-visibility.html">Conformal Calibration of Co-Visibility Scores for Connected View Graphs</a></h4>
           <p class="pub-authors"><strong>Zheng Gao</strong>, Junlin Yu, Wanrui Pang, Xiaoyu Li, Yang Song, Jiaojiao Jiang</p>
